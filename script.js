@@ -1,10 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
     const seats = document.querySelectorAll('.seat.available');
-    const timeSlots = document.querySelectorAll('.time-slot');
-    const paymentBtns = document.querySelectorAll('.payment-btn');
+    const timeSlots = document.querySelectorAll('.time-btn');
+    const dateCards = document.querySelectorAll('.date-card');
+    const paymentBtns = document.querySelectorAll('.btn');
     
     let selectedSeats = [];
     const maxSeats = 4;
+    
+    // Date selection functionality
+    dateCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Remove active class from all date cards
+            dateCards.forEach(c => c.classList.remove('active'));
+            // Add active class to clicked card
+            this.classList.add('active');
+            
+            // Update booking summary with selected date
+            updateBookingSummary();
+        });
+    });
+    
+    // Time slot selection functionality
+    timeSlots.forEach(slot => {
+        slot.addEventListener('click', function() {
+            // Remove active class from all time slots
+            timeSlots.forEach(s => s.classList.remove('active'));
+            // Add active class to clicked slot
+            this.classList.add('active');
+            
+            // Update booking summary with selected time
+            updateBookingSummary();
+        });
+    });
     
     // Seat selection functionality
     seats.forEach(seat => {
@@ -24,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             updateSeatInfo();
+            updateSelectedSeatsDisplay();
             updateTicketInfo();
         });
     });
@@ -51,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update seat selection info
     function updateSeatInfo() {
-        const seatInfo = document.querySelector('.seat-info p');
+        const seatInfo = document.querySelector('.alert strong');
         const remaining = maxSeats - selectedSeats.length;
         
         if (selectedSeats.length === 0) {
@@ -63,26 +91,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Update selected seats display
+    function updateSelectedSeatsDisplay() {
+        const seatPills = document.querySelector('.seat-pills');
+        seatPills.innerHTML = '';
+        
+        selectedSeats.forEach(seatId => {
+            const badge = document.createElement('span');
+            badge.className = 'badge bg-success me-1 mb-1';
+            badge.textContent = seatId;
+            seatPills.appendChild(badge);
+        });
+        
+        if (selectedSeats.length === 0) {
+            seatPills.innerHTML = '<span class="text-muted">No seats selected</span>';
+        }
+    }
+    
     // Update ticket information in price breakdown
     function updateTicketInfo() {
-        const ticketRow = document.querySelector('.ticket-row');
-        const ticketCount = ticketRow.querySelector('span:first-child');
-        const ticketSeats = ticketRow.querySelector('span:last-child');
-        
-        ticketCount.textContent = `${selectedSeats.length} Ticket${selectedSeats.length !== 1 ? 's' : ''}`;
-        ticketSeats.textContent = selectedSeats.join(', ') || 'None selected';
-        
         // Update pricing (basic calculation)
         const pricePerTicket = 55000; // IDR 55,000 per ticket
         const subtotal = selectedSeats.length * pricePerTicket;
         const discount = Math.min(20000, subtotal * 0.1); // 10% discount, max 20k
         const total = subtotal - discount;
         
-        document.querySelector('.price-row:nth-child(2) span:last-child').textContent = `IDR${subtotal.toLocaleString()}`;
-        document.querySelector('.price-row:nth-child(3) span:last-child').textContent = `-IDR${discount.toLocaleString()}`;
-        document.querySelector('.price-row.total span:last-child').textContent = `IDR${total.toLocaleString()}`;
+        // Update price breakdown
+        document.querySelector('.price-item:first-child span:last-child').textContent = `IDR ${subtotal.toLocaleString()}`;
+        document.querySelector('.price-item:nth-child(2) span:last-child').textContent = `- IDR ${discount.toLocaleString()}`;
+        document.querySelector('.price-total span:last-child').textContent = `IDR ${total.toLocaleString()}`;
+        
+        // Update ticket count
+        document.querySelector('.price-item:first-child span:first-child').textContent = `${selectedSeats.length} Ticket${selectedSeats.length !== 1 ? 's' : ''}`;
     }
     
+    // Function to update booking summary
+    function updateBookingSummary() {
+        const activeDate = document.querySelector('.date-card.active');
+        const activeTime = document.querySelector('.time-btn.active');
+        const selectedCinema = document.querySelector('select').value;
+        
+        if (activeDate && activeTime) {
+            const dateText = activeDate.querySelector('.date-header').textContent + ', ' + 
+                           activeDate.querySelector('.date-day').textContent;
+            const timeText = activeTime.querySelector('.fw-bold').textContent;
+            
+            // Update the booking summary
+            document.querySelector('.movie-details p:nth-child(1) strong').nextSibling.textContent = ' ' + dateText;
+            document.querySelector('.movie-details p:nth-child(2) strong').nextSibling.textContent = ' ' + timeText;
+            document.querySelector('.movie-details p:nth-child(3) strong').nextSibling.textContent = ' ' + selectedCinema;
+        }
+    }
+    
+    // Cinema selection change
+    document.querySelector('select').addEventListener('change', updateBookingSummary);
+
     // Initialize with some pre-selected seats to match the design
     const preSelectedSeats = ['B2', 'B3', 'B4', 'B5'];
     preSelectedSeats.forEach(seatId => {
@@ -95,7 +158,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     updateSeatInfo();
+    updateSelectedSeatsDisplay();
     updateTicketInfo();
+    updateBookingSummary();
 });
 
 // Add some hover effects and animations
