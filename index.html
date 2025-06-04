@@ -12,34 +12,62 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container-fluid py-4">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Now Showing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Upcoming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4 main-content">
         <div class="row g-4 justify-content-center">
-            <!-- Left Section - Seat Selection -->
+            <!-- Left Section - Movie Details, Date/Time, Seat Selection -->
             <div class="col-lg-8">
+                <!-- Movie Title -->
+                <h1 class="movie-title display-5 fw-bold mb-4">Interstellar (2014)</h1>
+
                 <div class="card shadow-lg border-0">
-                    <div class="card-header bg-dark text-white py-3">
-                        <h3 class="mb-0"><i class="bi bi-ticket-perforated me-2"></i>Select Your Experience</h3>
-                    </div>
                     <div class="card-body p-4">
-                        
                         <!-- Date Selection -->
                         <div class="mb-4">
-                            <h5 class="mb-3"><i class="bi bi-calendar3 me-2"></i>Date</h5>
-                            <div class="row g-2">
-                                <div class="col-4">
-                                    <div class="date-card active" data-date="2024-06-02">
+                            <h5 class="mb-3 section-title"><i class="bi bi-calendar3 me-2"></i>Date</h5>
+                            <div class="row g-2 date-selection-row">
+                                <div class="col-auto">
+                                    <div class="date-card active" data-date="2025-06-02">
                                         <div class="date-header">Jun <strong>02</strong></div>
                                         <div class="date-day">sunday</div>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="date-card" data-date="2024-06-03">
+                                <div class="col-auto">
+                                    <div class="date-card" data-date="2025-06-03">
                                         <div class="date-header">Jun <strong>03</strong></div>
                                         <div class="date-day">monday</div>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="date-card" data-date="2024-06-04">
+                                <div class="col-auto">
+                                    <div class="date-card" data-date="2025-06-04">
                                         <div class="date-header">Jun <strong>04</strong></div>
                                         <div class="date-day">tuesday</div>
                                     </div>
@@ -47,247 +75,183 @@
                             </div>
                         </div>
 
-                        <!-- Cinema and Time Selection -->
+                        <!-- Time Selection -->
                         <div class="mb-4">
-                            <h5 class="mb-3"><i class="bi bi-clock me-2"></i>Time & Cinema</h5>
-                            <div class="row mb-3">
-                                <div class="col-12">
-                                    <select class="form-select form-select-lg">
-                                        <option selected>Cinema Stela</option>
-                                        <option>Cinema Plaza</option>
-                                        <option>Cinema Mall</option>
-                                    </select>
+                            <h5 class="mb-3 section-title"><i class="bi bi-clock me-2"></i>Time</h5>
+                            <div class="row g-2 time-selection-row">
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn active" data-time="07:30">7.30 AM</button>
                                 </div>
-                            </div>
-                            
-                            <div class="row g-2">
-                                <div class="col-6 col-md-3">
-                                    <button class="btn btn-outline-primary w-100 time-btn active">
-                                        <div class="fw-bold">7:30 AM</div>
-                                    </button>
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn" data-time="10:45">10.45 AM</button>
                                 </div>
-                                <div class="col-6 col-md-3">
-                                    <button class="btn btn-outline-primary w-100 time-btn">
-                                        <div class="fw-bold">10:45 AM</div>
-                                    </button>
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn" data-time="15:00">3.00 PM</button>
                                 </div>
-                                <div class="col-6 col-md-3">
-                                    <button class="btn btn-outline-primary w-100 time-btn">
-                                        <div class="fw-bold">3:00 PM</div>
-                                    </button>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <button class="btn btn-outline-primary w-100 time-btn">
-                                        <div class="fw-bold">7:45 PM</div>
-                                    </button>
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn" data-time="19:45">7.45 PM</button>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Screen -->
-                        <div class="text-center mb-4">
+                        
+                        <!-- Screen and Seating Chart (Moved from card-header for better flow) -->
+                        <div class="text-center mb-3">
                             <div class="screen-modern">
-                                <div class="screen-label">SCREEN</div>
+                                <span class="screen-label">SCREEN</span>
                             </div>
                         </div>
-                        <!-- Seating Chart -->
                         <div class="seating-chart-modern mb-4">
+                            <!-- Rows A to E -->
                             <!-- Row A -->
-                            <div class="row g-1 justify-content-center mb-2">
-                                <div class="col-auto"><span class="row-label">A</span></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="A1">1</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="A2">2</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="A3">3</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="A4">4</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="A5">5</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="A6">6</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="A7">7</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="A8">8</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="A9">9</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="A10">10</div></div>
+                            <div class="seat-row">
+                                <div class="row-label">A</div>
+                                <div class="seat" data-seat="A1"></div>
+                                <div class="seat" data-seat="A2"></div>
+                                <div class="seat" data-seat="A3"></div>
+                                <div class="seat" data-seat="A4"></div>
+                                <div class="seat" data-seat="A5"></div>
+                                <div class="seat" data-seat="A6"></div>
+                                <div class="seat" data-seat="A7"></div>
+                                <div class="seat" data-seat="A8"></div>
+                                <div class="seat unavailable" data-seat="A9"></div>
+                                <div class="seat unavailable" data-seat="A10"></div>
                             </div>
-                            
                             <!-- Row B -->
-                            <div class="row g-1 justify-content-center mb-2">
-                                <div class="col-auto"><span class="row-label">B</span></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="B1">1</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="B2">2</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="B3">3</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="B4">4</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="B5">5</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="B6">6</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="B7">7</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="B8">8</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="B9">9</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="B10">10</div></div>
+                            <div class="seat-row">
+                                <div class="row-label">B</div>
+                                <div class="seat" data-seat="B1"></div>
+                                <div class="seat" data-seat="B2"></div>
+                                <div class="seat" data-seat="B3"></div>
+                                <div class="seat" data-seat="B4"></div>
+                                <div class="seat" data-seat="B5"></div>
+                                <div class="seat" data-seat="B6"></div>
+                                <div class="seat" data-seat="B7"></div>
+                                <div class="seat" data-seat="B8"></div>
+                                <div class="seat" data-seat="B9"></div>
+                                <div class="seat" data-seat="B10"></div>
                             </div>
-                            
                             <!-- Row C -->
-                            <div class="row g-1 justify-content-center mb-2">
-                                <div class="col-auto"><span class="row-label">C</span></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="C1">1</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="C2">2</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="C3">3</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="C4">4</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="C5">5</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="C6">6</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="C7">7</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="C8">8</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="C9">9</div></div>
-                                <div class="col-auto"><div class="seat unavailable" data-seat="C10">10</div></div>
+                            <div class="seat-row">
+                                <div class="row-label">C</div>
+                                <div class="seat" data-seat="C1"></div>
+                                <div class="seat" data-seat="C2"></div>
+                                <div class="seat unavailable" data-seat="C3"></div>
+                                <div class="seat unavailable" data-seat="C4"></div>
+                                <div class="seat" data-seat="C5"></div>
+                                <div class="seat" data-seat="C6"></div>
+                                <div class="seat unavailable" data-seat="C7"></div>
+                                <div class="seat unavailable" data-seat="C8"></div>
+                                <div class="seat" data-seat="C9"></div>
+                                <div class="seat" data-seat="C10"></div>
                             </div>
-                            
                             <!-- Row D -->
-                            <div class="row g-1 justify-content-center mb-2">
-                                <div class="col-auto"><span class="row-label">D</span></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D1">1</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D2">2</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D3">3</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D4">4</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D5">5</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D6">6</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D7">7</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D8">8</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D9">9</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="D10">10</div></div>
+                            <div class="seat-row">
+                                <div class="row-label">D</div>
+                                <div class="seat" data-seat="D1"></div>
+                                <div class="seat" data-seat="D2"></div>
+                                <div class="seat" data-seat="D3"></div>
+                                <div class="seat" data-seat="D4"></div>
+                                <div class="seat" data-seat="D5"></div>
+                                <div class="seat" data-seat="D6"></div>
+                                <div class="seat" data-seat="D7"></div>
+                                <div class="seat" data-seat="D8"></div>
+                                <div class="seat" data-seat="D9"></div>
+                                <div class="seat" data-seat="D10"></div>
                             </div>
-                            
                             <!-- Row E -->
-                            <div class="row g-1 justify-content-center mb-2">
-                                <div class="col-auto"><span class="row-label">E</span></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="E1">1</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="E2">2</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="E3">3</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="E4">4</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="E5">5</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="E6">6</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="E7">7</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="E8">8</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="E9">9</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="E10">10</div></div>
-                            </div>
-                            
-                            <!-- Row F -->
-                            <div class="row g-1 justify-content-center mb-2">
-                                <div class="col-auto"><span class="row-label">F</span></div>
-                                <div class="col-auto"><div class="seat available" data-seat="F1">1</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="F2">2</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="F3">3</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="F4">4</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="F5">5</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="F6">6</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="F7">7</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="F8">8</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="F9">9</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="F10">10</div></div>
-                            </div>
-                            
-                            <!-- Row G -->
-                            <div class="row g-1 justify-content-center mb-2">
-                                <div class="col-auto"><span class="row-label">G</span></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G1">1</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G2">2</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G3">3</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G4">4</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="G5">5</div></div>
-                                <div class="col-auto"><div class="seat selected" data-seat="G6">6</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G7">7</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G8">8</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G9">9</div></div>
-                                <div class="col-auto"><div class="seat available" data-seat="G10">10</div></div>
+                            <div class="seat-row">
+                                <div class="row-label">E</div>
+                                <div class="seat" data-seat="E1"></div>
+                                <div class="seat" data-seat="E2"></div>
+                                <div class="seat" data-seat="E3"></div>
+                                <div class="seat" data-seat="E4"></div>
+                                <div class="seat unavailable" data-seat="E5"></div>
+                                <div class="seat unavailable" data-seat="E6"></div>
+                                <div class="seat" data-seat="E7"></div>
+                                <div class="seat" data-seat="E8"></div>
+                                <div class="seat" data-seat="E9"></div>
+                                <div class="seat" data-seat="E10"></div>
                             </div>
                         </div>
 
                         <!-- Seat Legend -->
-                        <div class="row g-3 text-center mb-4">
-                            <div class="col-4">
-                                <div class="seat-legend">
-                                    <div class="seat available small me-2"></div>
-                                    <span class="small">Available</span>
+                        <div class="row g-3 text-center justify-content-center mb-4 seat-legend-container">
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center seat-legend">
+                                    <div class="seat small available me-2"></div> Available
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="seat-legend">
-                                    <div class="seat selected small me-2"></div>
-                                    <span class="small">Selected</span>
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center seat-legend">
+                                    <div class="seat small selected me-2"></div> Selected
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="seat-legend">
-                                    <div class="seat unavailable small me-2"></div>
-                                    <span class="small">Taken</span>
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center seat-legend">
+                                    <div class="seat small unavailable me-2"></div> Unavailable
                                 </div>
                             </div>
                         </div>
-
-                        <div class="alert alert-info">
+                        
+                        <div class="alert alert-info d-none"> <!-- Initially hidden, controlled by JS -->
                             <i class="bi bi-info-circle me-2"></i>
-                            <strong>Select 3 Seats</strong> - Choose your preferred seats
+                            <strong>Select seats</strong>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Right Section - Movie Details and Booking -->
+            <!-- Right Section - Movie Poster and Booking Summary -->
             <div class="col-lg-4">
-                <div class="card shadow-lg border-0 sticky-top">
-                    <div class="card-header bg-gradient text-white py-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <h4 class="mb-0"><i class="bi bi-film me-2"></i>Booking Summary</h4>
-                    </div>
+                <!-- Movie Poster -->
+                <div class="movie-poster-container mb-4 text-center">
+                    <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar Movie Poster" class="img-fluid rounded shadow">
+                    <!-- Placeholder image, replace with actual poster URL if available -->
+                </div>
+
+                <div class="card shadow-lg border-0 sticky-top booking-summary-card">
                     <div class="card-body p-4">
-                        <!-- Movie Info -->
-                        <div class="movie-info-modern mb-4">
-                            <h4 class="fw-bold text-dark mb-2">Godzilla x Kong: The New Empire</h4>
-                            <div class="d-flex gap-2 mb-3">
-                                <span class="badge bg-primary">Sci-Fi</span>
-                                <span class="badge bg-warning">Action</span>
+                        <!-- Movie Info in Booking Summary -->
+                        <div class="movie-info-summary mb-3">
+                            <h5 class="fw-bold text-dark mb-1">Interstellar (2014)</h5>
+                            <div class="d-flex gap-2 mb-2">
+                                <span class="badge bg-secondary">Sci-Fi</span>
+                                <span class="badge bg-secondary">Action</span>
                             </div>
-                            <div class="movie-details">
-                                <p class="mb-2"><i class="bi bi-calendar3 me-2 text-primary"></i><strong>Date:</strong> Jun 02, Sunday</p>
-                                <p class="mb-2"><i class="bi bi-clock me-2 text-primary"></i><strong>Time:</strong> 7:30 AM</p>
-                                <p class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i><strong>Cinema:</strong> Cinema Stela</p>
-                            </div>
+                            <p class="mb-1 small text-muted" id="booking-date-time">Date & Time: <span class="fw-semibold">Jun 02, sunday, 7.30 AM</span></p>
                         </div>
 
                         <!-- Selected Seats -->
-                        <div class="selected-seats mb-4">
-                            <h6 class="fw-bold mb-2">Selected Seats</h6>
+                        <div class="selected-seats mb-3">
+                            <h6 class="fw-bold mb-2">Selected Seats (<span id="selected-seat-count">0</span>)</h6>
                             <div class="seat-pills">
-                                <span class="badge bg-success me-1 mb-1">B02</span>
-                                <span class="badge bg-success me-1 mb-1">B03</span>
-                                <span class="badge bg-success me-1 mb-1">B04</span>
-                                <span class="badge bg-success me-1 mb-1">B05</span>
+                                <span class="text-muted">No seats selected</span>
                             </div>
                         </div>
 
                         <!-- Price Breakdown -->
                         <div class="price-breakdown-modern mb-4">
-                            <h6 class="fw-bold mb-3">Price Breakdown</h6>
-                            <div class="price-item d-flex justify-content-between mb-2">
-                                <span>4 Tickets</span>
-                                <span class="fw-bold">IDR 220,000</span>
+                            <h6 class="fw-bold mb-2">Price</h6>
+                            <div class="price-item d-flex justify-content-between">
+                                <span><span id="num-tickets">0</span> Tickets</span>
+                                <span id="subtotal-price">IDR 0</span>
                             </div>
-                            <div class="price-item d-flex justify-content-between mb-2 text-success">
+                            <div class="price-item d-flex justify-content-between text-danger">
                                 <span>Discount</span>
-                                <span class="fw-bold">- IDR 20,000</span>
+                                <span id="discount-price">- IDR 0</span>
                             </div>
-                            <hr>
-                            <div class="price-total d-flex justify-content-between">
-                                <span class="h5 fw-bold">Total</span>
-                                <span class="h5 fw-bold text-primary">IDR 200,000</span>
+                            <hr class="my-2">
+                            <div class="price-total d-flex justify-content-between fw-bold fs-5">
+                                <span>Total</span>
+                                <span id="total-price">IDR 0</span>
                             </div>
                         </div>
 
                         <!-- Payment Options -->
                         <div class="payment-options-modern">
-                            <h6 class="fw-bold mb-3">Payment Method</h6>
                             <div class="d-grid gap-2">
-                                <button class="btn btn-primary btn-lg">
-                                    <i class="bi bi-qr-code me-2"></i>Pay with QRIS
-                                </button>
-                                <button class="btn btn-outline-dark btn-lg">
-                                    <i class="bi bi-cash me-2"></i>Pay with Cash
-                                </button>
+                                <button class="btn btn-primary btn-lg payment-btn qris"><i class="bi bi-qr-code me-2"></i>Pay QRIS</button>
+                                <button class="btn btn-outline-primary btn-lg payment-btn cash"><i class="bi bi-cash-coin me-2"></i>Pay Cash</button>
                             </div>
                         </div>
                     </div>
@@ -295,6 +259,79 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Logo
+                    </h6>
+                    <p>
+                        MovieTicker.lk is your go-to destination for all things cinema! With a passion for film, we bring you the latest updates, reviews, and ticket sales, ensuring you never miss out on the magic of the movies. Join us and experience the thrill of cinema like never before!
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Company</h6>
+                    <p><a href="#!" class="text-reset">About MovieTicker</a></p>
+                    <p><a href="#!" class="text-reset">Careers</a></p>
+                    <p><a href="#!" class="text-reset">Media & Press</a></p>
+                    <p><a href="#!" class="text-reset">Affiliate Program</a></p>
+                    <p><a href="#!" class="text-reset">Become a Partner</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Bookings</h6>
+                    <p><a href="#!" class="text-reset">Now Showing</a></p>
+                    <p><a href="#!" class="text-reset">Coming Soon</a></p>
+                    <p><a href="#!" class="text-reset">Book by Location</a></p>
+                    <p><a href="#!" class="text-reset">Movie Genres</a></p>
+                    <p><a href="#!" class="text-reset">Offers & Gift Cards</a></p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Support</h6>
+                    <p><a href="#!" class="text-reset">FAQs</a></p>
+                    <p><a href="#!" class="text-reset">Ticket Cancellation Policy</a></p>
+                    <p><a href="#!" class="text-reset">Payment Methods</a></p>
+                    <p><a href="#!" class="text-reset">Refund Policy</a></p>
+                    <p><a href="#!" class="text-reset">Customer Support Chat</a></p>
+                </div>
+                
+                <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+                    <p><i class="bi bi-telephone-fill me-3"></i> Hotline: +94 76 456 7890</p>
+                    <p><i class="bi bi-envelope-fill me-3"></i> Email: help@movieticker.lk</p>
+                    <p><i class="bi bi-clock-fill me-3"></i> Office Hours: Mon - Fri, 9AM - 6PM</p>
+                    <p><i class="bi bi-geo-alt-fill me-3"></i> Location: No. 456, Liberty Plaza, Colombo 03, Sri Lanka</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h6 class="text-uppercase fw-bold mb-3">Legal & Policies</h6>
+                    <p class="mb-1"><a href="#!" class="text-reset">Terms of Use</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Privacy Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Cookie Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Accessibility</a></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h6 class="text-uppercase fw-bold mb-3">Download Our App</h6>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-google-play"></i> Google Play
+                    </a>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-apple"></i> App Store
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 MovieTicker.lk | Crafted with Passion for Cinema Lovers. All Rights Reserved.
+            Powered by <a class="text-white" href="#">Dinod Tharinda</a>
+        </div>
+    </footer>
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

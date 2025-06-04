@@ -79,18 +79,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update seat selection info
     function updateSeatInfo() {
-        const seatInfo = document.querySelector('.alert strong');
+        // const seatInfo = document.querySelector('.alert strong'); // Old selector
+        const seatCountDisplay = document.getElementById('selected-seat-count');
+        const seatSelectionTitle = document.querySelector('.selected-seats h6'); // Target the h6 tag
         const remaining = maxSeats - selectedSeats.length;
-        
-        if (selectedSeats.length === 0) {
-            seatInfo.textContent = `Select ${maxSeats} Seats`;
-        } else if (remaining > 0) {
-            seatInfo.textContent = `Select ${remaining} more seat${remaining > 1 ? 's' : ''}`;
-        } else {
-            seatInfo.textContent = 'Maximum seats selected';
+
+        if (seatCountDisplay) {
+            seatCountDisplay.textContent = selectedSeats.length;
+        }
+
+        if (seatSelectionTitle) {
+            if (selectedSeats.length === 0) {
+                seatSelectionTitle.innerHTML = `Selected Seats (<span id="selected-seat-count">${selectedSeats.length}</span>) - Select up to ${maxSeats} Seats`;
+            } else if (remaining > 0) {
+                seatSelectionTitle.innerHTML = `Selected Seats (<span id="selected-seat-count">${selectedSeats.length}</span>) - Select ${remaining} more seat${remaining > 1 ? 's' : ''}`;
+            } else {
+                seatSelectionTitle.innerHTML = `Selected Seats (<span id="selected-seat-count">${selectedSeats.length}</span>) - Maximum seats selected`;
+            }
         }
     }
-    
+
     // Update selected seats display
     function updateSelectedSeatsDisplay() {
         const seatPills = document.querySelector('.seat-pills');
@@ -115,36 +123,65 @@ document.addEventListener('DOMContentLoaded', function() {
         const subtotal = selectedSeats.length * pricePerTicket;
         const discount = Math.min(20000, subtotal * 0.1); // 10% discount, max 20k
         const total = subtotal - discount;
-        
+
         // Update price breakdown
-        document.querySelector('.price-item:first-child span:last-child').textContent = `IDR ${subtotal.toLocaleString()}`;
-        document.querySelector('.price-item:nth-child(2) span:last-child').textContent = `- IDR ${discount.toLocaleString()}`;
-        document.querySelector('.price-total span:last-child').textContent = `IDR ${total.toLocaleString()}`;
-        
-        // Update ticket count
-        document.querySelector('.price-item:first-child span:first-child').textContent = `${selectedSeats.length} Ticket${selectedSeats.length !== 1 ? 's' : ''}`;
+        // document.querySelector('.price-item:first-child span:last-child').textContent = `IDR ${subtotal.toLocaleString()}`; // Old selector
+        // document.querySelector('.price-item:nth-child(2) span:last-child').textContent = `- IDR ${discount.toLocaleString()}`; // Old selector
+        // document.querySelector('.price-total span:last-child').textContent = `IDR ${total.toLocaleString()}`; // Old selector
+        // document.querySelector('.price-item:first-child span:first-child').textContent = `${selectedSeats.length} Ticket${selectedSeats.length !== 1 ? 's' : ''}`; // Old selector
+
+        const numTicketsEl = document.getElementById('num-tickets');
+        const subtotalPriceEl = document.getElementById('subtotal-price');
+        const discountPriceEl = document.getElementById('discount-price');
+        const totalPriceEl = document.getElementById('total-price');
+
+        if (numTicketsEl) numTicketsEl.textContent = `${selectedSeats.length} Ticket${selectedSeats.length !== 1 ? 's' : ''}`;
+        if (subtotalPriceEl) subtotalPriceEl.textContent = `IDR ${subtotal.toLocaleString()}`;
+        if (discountPriceEl) discountPriceEl.textContent = `- IDR ${discount.toLocaleString()}`;
+        if (totalPriceEl) totalPriceEl.textContent = `IDR ${total.toLocaleString()}`;
     }
-    
+
     // Function to update booking summary
     function updateBookingSummary() {
-        const activeDate = document.querySelector('.date-card.active');
-        const activeTime = document.querySelector('.time-btn.active');
-        const selectedCinema = document.querySelector('select').value;
-        
-        if (activeDate && activeTime) {
-            const dateText = activeDate.querySelector('.date-header').textContent + ', ' + 
-                           activeDate.querySelector('.date-day').textContent;
-            const timeText = activeTime.querySelector('.fw-bold').textContent;
-            
-            // Update the booking summary
-            document.querySelector('.movie-details p:nth-child(1) strong').nextSibling.textContent = ' ' + dateText;
-            document.querySelector('.movie-details p:nth-child(2) strong').nextSibling.textContent = ' ' + timeText;
-            document.querySelector('.movie-details p:nth-child(3) strong').nextSibling.textContent = ' ' + selectedCinema;
+        const activeDateCard = document.querySelector('.date-card.active');
+        const activeTimeButton = document.querySelector('.time-btn.active');
+        // const selectedCinema = document.querySelector('select').value; // Cinema select was removed from HTML
+        const bookingDateTimeEl = document.getElementById('booking-date-time');
+
+
+        let dateText = "N/A";
+        let timeText = "N/A";
+
+        if (activeDateCard) {
+            const dateHeader = activeDateCard.querySelector('.date-header strong').textContent;
+            const dateDay = activeDateCard.querySelector('.date-day').textContent;
+            const month = activeDateCard.querySelector('.date-header').firstChild.textContent.trim();
+            dateText = `${month} ${dateHeader}, ${dateDay}`;
         }
+
+        if (activeTimeButton) {
+            timeText = activeTimeButton.textContent; // Directly get text content of the button
+        }
+        
+        if (bookingDateTimeEl) {
+            bookingDateTimeEl.innerHTML = `Date & Time: <span class="fw-semibold">${dateText}, ${timeText}</span>`;
+        }
+
+        // Old logic for updating booking summary - to be removed or adapted if cinema selection is re-added
+        // if (activeDate && activeTime) {
+        //     const dateText = activeDate.querySelector('.date-header').textContent + ', ' + 
+        //                    activeDate.querySelector('.date-day').textContent;
+        //     const timeText = activeTime.querySelector('.fw-bold').textContent;
+            
+        //     // Update the booking summary
+        //     document.querySelector('.movie-details p:nth-child(1) strong').nextSibling.textContent = ' ' + dateText;
+        //     document.querySelector('.movie-details p:nth-child(2) strong').nextSibling.textContent = ' ' + timeText;
+        //     // document.querySelector('.movie-details p:nth-child(3) strong').nextSibling.textContent = ' ' + selectedCinema; // Cinema select removed
+        // }
     }
-    
-    // Cinema selection change
-    document.querySelector('select').addEventListener('change', updateBookingSummary);
+
+    // Cinema selection change - This event listener will cause an error as the select element was removed.
+    // document.querySelector('select').addEventListener('change', updateBookingSummary);
 
     // Initialize with some pre-selected seats to match the design
     const preSelectedSeats = ['B2', 'B3', 'B4', 'B5'];
