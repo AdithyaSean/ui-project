@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section - Seat Selection -->
+        <div class="seat-selection">
+            <h2>Select Seat</h2>
+            
+            <div class="screen">
+                <div class="screen-label">SCREEN</div>
+            </div>
+            
+            <div class="seating-chart">
+                <!-- Row A -->
+                <div class="row">
+                    <span class="row-label">A</span>
+                    <div class="seat selected" data-seat="A1">1</div>
+                    <div class="seat selected" data-seat="A2">2</div>
+                    <div class="seat selected" data-seat="A3">3</div>
+                    <div class="seat selected" data-seat="A4">4</div>
+                    <div class="seat selected" data-seat="A5">5</div>
+                    <div class="seat unavailable" data-seat="A6">6</div>
+                    <div class="seat unavailable" data-seat="A7">7</div>
+                    <div class="seat unavailable" data-seat="A8">8</div>
+                    <div class="seat selected" data-seat="A9">9</div>
+                    <div class="seat selected" data-seat="A10">10</div>
+                </div>
+                
+                <!-- Row B -->
+                <div class="row">
+                    <span class="row-label">B</span>
+                    <div class="seat unavailable" data-seat="B1">1</div>
+                    <div class="seat available" data-seat="B2">2</div>
+                    <div class="seat available" data-seat="B3">3</div>
+                    <div class="seat available" data-seat="B4">4</div>
+                    <div class="seat available" data-seat="B5">5</div>
+                    <div class="seat unavailable" data-seat="B6">6</div>
+                    <div class="seat unavailable" data-seat="B7">7</div>
+                    <div class="seat selected" data-seat="B8">8</div>
+                    <div class="seat selected" data-seat="B9">9</div>
+                    <div class="seat unavailable" data-seat="B10">10</div>
+                </div>
+                
+                <!-- Row C -->
+                <div class="row">
+                    <span class="row-label">C</span>
+                    <div class="seat selected" data-seat="C1">1</div>
+                    <div class="seat selected" data-seat="C2">2</div>
+                    <div class="seat selected" data-seat="C3">3</div>
+                    <div class="seat unavailable" data-seat="C4">4</div>
+                    <div class="seat unavailable" data-seat="C5">5</div>
+                    <div class="seat selected" data-seat="C6">6</div>
+                    <div class="seat selected" data-seat="C7">7</div>
+                    <div class="seat unavailable" data-seat="C8">8</div>
+                    <div class="seat unavailable" data-seat="C9">9</div>
+                    <div class="seat unavailable" data-seat="C10">10</div>
+                </div>
+                
+                <!-- Row D -->
+                <div class="row">
+                    <span class="row-label">D</span>
+                    <div class="seat available" data-seat="D1">1</div>
+                    <div class="seat available" data-seat="D2">2</div>
+                    <div class="seat available" data-seat="D3">3</div>
+                    <div class="seat available" data-seat="D4">4</div>
+                    <div class="seat available" data-seat="D5">5</div>
+                    <div class="seat available" data-seat="D6">6</div>
+                    <div class="seat available" data-seat="D7">7</div>
+                    <div class="seat available" data-seat="D8">8</div>
+                    <div class="seat available" data-seat="D9">9</div>
+                    <div class="seat available" data-seat="D10">10</div>
+                </div>
+                
+                <!-- Row E -->
+                <div class="row">
+                    <span class="row-label">E</span>
+                    <div class="seat selected" data-seat="E1">1</div>
+                    <div class="seat selected" data-seat="E2">2</div>
+                    <div class="seat available" data-seat="E3">3</div>
+                    <div class="seat available" data-seat="E4">4</div>
+                    <div class="seat selected" data-seat="E5">5</div>
+                    <div class="seat selected" data-seat="E6">6</div>
+                    <div class="seat selected" data-seat="E7">7</div>
+                    <div class="seat available" data-seat="E8">8</div>
+                    <div class="seat available" data-seat="E9">9</div>
+                    <div class="seat available" data-seat="E10">10</div>
+                </div>
+                
+                <!-- Row F -->
+                <div class="row">
+                    <span class="row-label">F</span>
+                    <div class="seat available" data-seat="F1">1</div>
+                    <div class="seat selected" data-seat="F2">2</div>
+                    <div class="seat selected" data-seat="F3">3</div>
+                    <div class="seat available" data-seat="F4">4</div>
+                    <div class="seat available" data-seat="F5">5</div>
+                    <div class="seat available" data-seat="F6">6</div>
+                    <div class="seat available" data-seat="F7">7</div>
+                    <div class="seat selected" data-seat="F8">8</div>
+                    <div class="seat selected" data-seat="F9">9</div>
+                    <div class="seat selected" data-seat="F10">10</div>
+                </div>
+                
+                <!-- Row G -->
+                <div class="row">
+                    <span class="row-label">G</span>
+                    <div class="seat available" data-seat="G1">1</div>
+                    <div class="seat available" data-seat="G2">2</div>
+                    <div class="seat available" data-seat="G3">3</div>
+                    <div class="seat available" data-seat="G4">4</div>
+                    <div class="seat selected" data-seat="G5">5</div>
+                    <div class="seat selected" data-seat="G6">6</div>
+                    <div class="seat available" data-seat="G7">7</div>
+                    <div class="seat available" data-seat="G8">8</div>
+                    <div class="seat available" data-seat="G9">9</div>
+                    <div class="seat available" data-seat="G10">10</div>
+                </div>
+            </div>
+            
+            <div class="seat-info">
+                <p>Select 3 Seats</p>
+            </div>
+        </div>
+        
+        <!-- Right Section - Movie Details and Booking -->
+        <div class="booking-details">
+            <div class="movie-info">
+                <h2>Godzilla x Kong: The New Empire</h2>
+                <div class="genres">
+                    <span class="genre">Sci-Fi</span>
+                    <span class="genre">Action</span>
+                </div>
+            </div>
+            
+            <div class="showtime-selection">
+                <h3>Select Showtime</h3>
+                <div class="cinema-select">
+                    <select>
+                        <option>Cinema Stela</option>
+                        <option>Cinema Plaza</option>
+                        <option>Cinema Mall</option>
+                    </select>
+                </div>
+                
+                <div class="time-slots">
+                    <div class="time-slot selected">1:00PM - 3:15 PM</div>
+                    <div class="time-slot">3:00PM - 5:15 PM</div>
+                    <div class="time-slot">5:00PM - 7:15 PM</div>
+                    <div class="time-slot">7:00PM - 9:15 PM</div>
+                </div>
+            </div>
+            
+            <div class="price-breakdown">
+                <h3>Price</h3>
+                <div class="ticket-info">
+                    <div class="ticket-row">
+                        <span>4 Ticket</span>
+                        <span>B02, B03, B04, B05</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Sub Total</span>
+                        <span>IDR220,000</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Discount</span>
+                        <span>-IDR20,000</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total</span>
+                        <span>IDR200,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-options">
+                <button class="payment-btn qris">Pay QRIS</button>
+                <button class="payment-btn cash">Pay Cash</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
