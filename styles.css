@@ -35,6 +35,70 @@ body {
     font-weight: 600;
 }
 
+/* Showtime selection at top of seat selection */
+.showtime-selection-top {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #e9ecef;
+}
+
+.showtime-selection-top h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.showtime-selection-top .cinema-select {
+    margin-bottom: 15px;
+}
+
+.showtime-selection-top .cinema-select select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 13px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.showtime-selection-top .cinema-select select:focus {
+    border-color: #666;
+}
+
+.showtime-selection-top .time-slots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.showtime-selection-top .time-slot {
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.showtime-selection-top .time-slot:hover {
+    border-color: #bbb;
+    background-color: #f9f9f9;
+}
+
+.showtime-selection-top .time-slot.selected {
+    background-color: #6c5ce7;
+    color: white;
+    border-color: #6c5ce7;
+}
+
 .screen {
     text-align: center;
     margin-bottom: 40px;
