@@ -920,3 +920,90 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Responsive Date and Time Selection */
+.date-selection-row,
+.time-selection-row {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* On smaller screens, allow natural flow */
+@media (max-width: 576px) {
+    .date-selection-row,
+    .time-selection-row {
+        justify-content: flex-start !important;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+    }
+    
+    .date-selection-row .col-auto,
+    .time-selection-row .col-auto {
+        flex-shrink: 0;
+    }
+}
+
+/* On medium and larger screens, center the content */
+@media (min-width: 768px) {
+    .date-selection-row,
+    .time-selection-row {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Add some additional spacing for better visual balance */
+    .date-selection-row .col-auto,
+    .time-selection-row .col-auto {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Enhanced section title centering */
+@media (min-width: 768px) {
+    .section-title.text-center {
+        text-align: center !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* Enhanced animations for centered date/time selections */
+.date-selection-row .col-auto,
+.time-selection-row .col-auto {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.date-selection-row .col-auto:nth-child(1) { animation-delay: 0.1s; }
+.date-selection-row .col-auto:nth-child(2) { animation-delay: 0.2s; }
+.date-selection-row .col-auto:nth-child(3) { animation-delay: 0.3s; }
+
+.time-selection-row .col-auto:nth-child(1) { animation-delay: 0.4s; }
+.time-selection-row .col-auto:nth-child(2) { animation-delay: 0.5s; }
+.time-selection-row .col-auto:nth-child(3) { animation-delay: 0.6s; }
+.time-selection-row .col-auto:nth-child(4) { animation-delay: 0.7s; }
+
+/* Add subtle hover effects for the entire selection areas */
+.date-selection-row:hover .date-card:not(:hover):not(.active),
+.time-selection-row:hover .time-btn:not(:hover):not(.active) {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+/* Add scale animation on load for the section titles */
+.section-title.text-center {
+    animation: fadeInScale 0.8s ease-out forwards;
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
