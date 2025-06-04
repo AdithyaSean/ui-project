@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const paymentBtns = document.querySelectorAll('.btn');
     
     let selectedSeats = [];
-    const maxSeats = 4;
+    const maxSeats = 8; // Increased max seats for larger layout
     
     // Date selection functionality
     dateCards.forEach(card => {
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // document.querySelector('select').addEventListener('change', updateBookingSummary);
 
     // Initialize with some pre-selected seats to match the design
-    const preSelectedSeats = ['B2', 'B3', 'B4', 'B5'];
+    const preSelectedSeats = ['D6', 'D7', 'D8', 'D9']; // Center seats in row D
     preSelectedSeats.forEach(seatId => {
         const seat = document.querySelector(`[data-seat="${seatId}"]`);
         if (seat && seat.classList.contains('available')) {
