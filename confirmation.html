@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Movie Ticket Booking</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand fw-bold" href="index.html">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Now Showing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Upcoming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4 main-content">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Success Message -->
+                <div class="text-center mb-5">
+                    <div class="success-icon mb-4">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h1 class="display-5 fw-bold text-success mb-3">Booking Confirmed!</h1>
+                    <p class="lead text-muted">Thank you for your purchase. Your movie tickets have been confirmed.</p>
+                </div>
+
+                <!-- Booking Details Card -->
+                <div class="card shadow-lg border-0 mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="bi bi-ticket-perforated me-2"></i>Booking Details</h5>
+                            <span class="badge bg-light text-dark">Booking ID: #MT2025060001</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <!-- Movie Information -->
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <img src="https://image.tmdb.org/t/p/w300/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar" class="img-fluid rounded shadow mb-3" style="max-height: 300px;">
+                                    <h5 class="fw-bold">Interstellar (2014)</h5>
+                                    <span class="badge bg-primary">Sci-Fi</span>
+                                    <span class="badge bg-secondary">169 min</span>
+                                </div>
+                            </div>
+
+                            <!-- Booking Information -->
+                            <div class="col-md-8">
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="info-item">
+                                            <div class="info-label text-muted">Cinema</div>
+                                            <div class="info-value fw-bold">Liberty Cinema Colombo</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="info-item">
+                                            <div class="info-label text-muted">Screen</div>
+                                            <div class="info-value fw-bold">Screen 1 - IMAX</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="info-item">
+                                            <div class="info-label text-muted">Date</div>
+                                            <div class="info-value fw-bold">Today, June 4, 2025</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="info-item">
+                                            <div class="info-label text-muted">Show Time</div>
+                                            <div class="info-value fw-bold">7:00 PM</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="info-item">
+                                            <div class="info-label text-muted">Seats</div>
+                                            <div class="info-value">
+                                                <span class="badge bg-primary me-1">D6</span>
+                                                <span class="badge bg-primary me-1">D7</span>
+                                                <span class="badge bg-primary me-1">D8</span>
+                                                <span class="badge bg-primary">D9</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="info-item">
+                                            <div class="info-label text-muted">Total Amount Paid</div>
+                                            <div class="info-value fw-bold text-success fs-5">LKR 2,262.40</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="info-item">
+                                            <div class="info-label text-muted">Payment Method</div>
+                                            <div class="info-value fw-bold">Credit Card (****1234)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code and Instructions -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="card shadow border-0 h-100">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title mb-3">
+                                    <i class="bi bi-qr-code me-2"></i>Digital Ticket
+                                </h5>
+                                <div class="qr-code-placeholder mb-3">
+                                    <div class="bg-light rounded p-4" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="bi bi-qr-code" style="font-size: 5rem; color: #6c757d;"></i>
+                                    </div>
+                                </div>
+                                <p class="text-muted small">Show this QR code at the cinema entrance</p>
+                                <button class="btn btn-outline-primary">
+                                    <i class="bi bi-download me-2"></i>Download Ticket
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card shadow border-0 h-100">
+                            <div class="card-body p-4">
+                                <h5 class="card-title mb-3">
+                                    <i class="bi bi-info-circle me-2"></i>Important Information
+                                </h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Arrive 15 minutes before show time
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Bring a valid ID for verification
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Present QR code at the entrance
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        No outside food or drinks allowed
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                                        Cancellation allowed up to 2 hours before show
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mb-4">
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <button class="btn btn-primary btn-lg">
+                            <i class="bi bi-envelope me-2"></i>Email Ticket
+                        </button>
+                        <button class="btn btn-outline-primary btn-lg">
+                            <i class="bi bi-share me-2"></i>Share
+                        </button>
+                        <button class="btn btn-outline-secondary btn-lg">
+                            <i class="bi bi-printer me-2"></i>Print Ticket
+                        </button>
+                        <a href="index.html" class="btn btn-success btn-lg">
+                            <i class="bi bi-plus-circle me-2"></i>Book Another Movie
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Support Section -->
+                <div class="card shadow border-0 mb-4">
+                    <div class="card-body p-4 text-center">
+                        <h5 class="card-title mb-3">Need Help?</h5>
+                        <p class="text-muted mb-3">If you have any questions about your booking or need assistance, our support team is here to help.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="tel:+94764567890" class="btn btn-outline-primary">
+                                <i class="bi bi-telephone me-2"></i>Call Support
+                            </a>
+                            <a href="mailto:help@movieticker.lk" class="btn btn-outline-primary">
+                                <i class="bi bi-envelope me-2"></i>Email Us
+                            </a>
+                            <button class="btn btn-outline-primary">
+                                <i class="bi bi-chat-dots me-2"></i>Live Chat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">MovieTicker</h6>
+                    <p>Your premier destination for booking movie tickets online. Experience cinema like never before with our seamless booking platform.</p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Company</h6>
+                    <p><a href="#!" class="text-reset">About MovieTicker</a></p>
+                    <p><a href="#!" class="text-reset">Careers</a></p>
+                    <p><a href="#!" class="text-reset">Media & Press</a></p>
+                    <p><a href="#!" class="text-reset">Affiliate Program</a></p>
+                    <p><a href="#!" class="text-reset">Become a Partner</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Bookings</h6>
+                    <p><a href="#!" class="text-reset">Now Showing</a></p>
+                    <p><a href="#!" class="text-reset">Coming Soon</a></p>
+                    <p><a href="#!" class="text-reset">Book by Location</a></p>
+                    <p><a href="#!" class="text-reset">Movie Genres</a></p>
+                    <p><a href="#!" class="text-reset">Offers & Gift Cards</a></p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Support</h6>
+                    <p><a href="#!" class="text-reset">FAQs</a></p>
+                    <p><a href="#!" class="text-reset">Ticket Cancellation Policy</a></p>
+                    <p><a href="#!" class="text-reset">Payment Methods</a></p>
+                    <p><a href="#!" class="text-reset">Refund Policy</a></p>
+                    <p><a href="#!" class="text-reset">Customer Support Chat</a></p>
+                </div>
+                
+                <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+                    <p><i class="bi bi-telephone-fill me-3"></i> Hotline: +94 76 456 7890</p>
+                    <p><i class="bi bi-envelope-fill me-3"></i> Email: help@movieticker.lk</p>
+                    <p><i class="bi bi-clock-fill me-3"></i> Office Hours: Mon - Fri, 9AM - 6PM</p>
+                    <p><i class="bi bi-geo-alt-fill me-3"></i> Location: No. 456, Liberty Plaza, Colombo 03, Sri Lanka</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h6 class="text-uppercase fw-bold mb-3">Legal & Policies</h6>
+                    <p class="mb-1"><a href="#!" class="text-reset">Terms of Use</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Privacy Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Cookie Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Accessibility</a></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h6 class="text-uppercase fw-bold mb-3">Download Our App</h6>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-apple"></i>
+                    </a>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-google-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 MovieTicker.lk | Crafted with Passion for Cinema Lovers. All Rights Reserved.
+            Powered by <a class="text-white" href="#">Dinod Tharinda</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Confirmation page with placeholder data and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load placeholder booking data
+            loadPlaceholderConfirmationData();
+            
+            // Add entrance animations
+            addPageAnimations();
+            
+            // Email ticket functionality
+            const emailBtn = document.querySelector('button:has(.bi-envelope)');
+            if (emailBtn) {
+                emailBtn.addEventListener('click', function() {
+                    this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="bi bi-check-circle me-2"></i>Sent!';
+                        this.classList.remove('btn-outline-primary');
+                        this.classList.add('btn-success');
+                        
+                        showNotification('Ticket has been sent to your email address!', 'success');
+                        
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="bi bi-envelope me-2"></i>Email Ticket';
+                            this.classList.remove('btn-success');
+                            this.classList.add('btn-outline-primary');
+                            this.disabled = false;
+                        }, 3000);
+                    }, 1500);
+                });
+            }
+            
+            // Print ticket functionality
+            const printBtn = document.querySelector('button:has(.bi-printer)');
+            if (printBtn) {
+                printBtn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        window.print();
+                    }, 100);
+                });
+            }
+            
+            // Share functionality
+            const shareBtn = document.querySelector('button:has(.bi-share)');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function() {
+                    this.style.transform = 'rotate(15deg)';
+                    setTimeout(() => {
+                        this.style.transform = 'rotate(0deg)';
+                    }, 200);
+                    
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'My Movie Ticket - Interstellar',
+                            text: 'I just booked tickets for Interstellar!',
+                            url: window.location.href
+                        });
+                    } else {
+                        // Fallback for browsers that don't support Web Share API
+                        const url = window.location.href;
+                        navigator.clipboard.writeText(url).then(function() {
+                            showNotification('Booking link copied to clipboard!', 'success');
+                        });
+                    }
+                });
+            }
+            
+            // Download ticket functionality
+            const downloadBtn = document.querySelector('button:has(.bi-download)');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Generating...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="bi bi-download me-2"></i>Download Ticket';
+                        this.disabled = false;
+                        showNotification('Ticket download started!', 'success');
+                    }, 2000);
+                });
+            }
+            
+            // Add button hover animations
+            const buttons = document.querySelectorAll('button, .btn');
+            buttons.forEach(button => {
+                button.style.transition = 'all 0.3s ease';
+                
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    if (!this.disabled) {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '';
+                    }
+                });
+            });
+        });
+        
+        function loadPlaceholderConfirmationData() {
+            // Static placeholder data
+            const placeholderData = {
+                bookingId: 'BK' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+                movie: {
+                    title: 'Interstellar (2014)',
+                    poster: 'https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',
+                    cinema: 'Liberty Cinema Hall 3',
+                    genres: ['Sci-Fi', 'Drama', 'Adventure']
+                },
+                showtime: {
+                    date: 'Sunday, June 02, 2025',
+                    time: '7:30 PM'
+                },
+                seats: ['D6', 'D7', 'D8', 'D9'],
+                pricing: {
+                    total: 200000,
+                    paymentMethod: 'Credit Card (****1234)'
+                }
+            };
+            
+            updateConfirmationDisplay(placeholderData);
+        }
+        
+        function updateConfirmationDisplay(data) {
+            // Update booking ID with animation
+            const bookingIdEl = document.getElementById('booking-id');
+            if (bookingIdEl) {
+                bookingIdEl.style.opacity = '0';
+                bookingIdEl.textContent = data.bookingId;
+                setTimeout(() => {
+                    bookingIdEl.style.opacity = '1';
+                    bookingIdEl.style.transition = 'opacity 0.5s ease';
+                }, 300);
+            }
+            
+            // Update movie poster with fade effect
+            const posterEl = document.getElementById('movie-poster');
+            if (posterEl) {
+                posterEl.style.opacity = '0';
+                posterEl.src = data.movie.poster;
+                posterEl.onload = () => {
+                    posterEl.style.opacity = '1';
+                    posterEl.style.transition = 'opacity 0.5s ease';
+                };
+            }
+        }
+        
+        function addPageAnimations() {
+            // Animate success icon
+            const successIcon = document.querySelector('.success-icon');
+            if (successIcon) {
+                successIcon.style.animation = 'bounceIn 0.8s ease-out';
+            }
+            
+            // Animate cards with stagger effect
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 + (index * 150));
+            });
+            
+            // Animate seat badges
+            const seatBadges = document.querySelectorAll('.badge');
+            seatBadges.forEach((badge, index) => {
+                badge.style.opacity = '0';
+                badge.style.transform = 'scale(0.8)';
+                badge.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    badge.style.opacity = '1';
+                    badge.style.transform = 'scale(1)';
+                }, 1000 + (index * 100));
+            });
+            
+            // Animate QR code
+            const qrCode = document.querySelector('.qr-code-placeholder');
+            if (qrCode) {
+                qrCode.style.transform = 'scale(0.9)';
+                qrCode.style.transition = 'transform 0.5s ease';
+                
+                setTimeout(() => {
+                    qrCode.style.transform = 'scale(1)';
+                }, 1500);
+            }
+        }
+        
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type === 'error' ? 'danger' : 'success'} notification-popup`;
+            notification.innerHTML = `
+                <i class="bi bi-${type === 'error' ? 'exclamation-triangle' : 'check-circle'} me-2"></i>
+                ${message}
+            `;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                opacity: 0;
+                transform: translateX(100%);
+                transition: all 0.3s ease;
+                min-width: 300px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounceIn {
+                0% {
+                    transform: scale(0.3);
+                    opacity: 0;
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+                70% {
+                    transform: scale(0.9);
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+            
+            .success-icon {
+                animation: bounceIn 0.8s ease-out;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

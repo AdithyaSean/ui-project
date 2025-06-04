@@ -377,11 +377,16 @@
                             </div>
                         </div>
 
-                        <!-- Payment Options -->
+                        <!-- Continue to Payment -->
                         <div class="payment-options-modern">
                             <div class="d-grid gap-2">
-                                <button class="btn btn-primary btn-lg payment-btn qris"><i class="bi bi-qr-code me-2"></i>Pay QRIS</button>
-                                <button class="btn btn-outline-primary btn-lg payment-btn cash"><i class="bi bi-cash-coin me-2"></i>Pay Cash</button>
+                                <button id="continue-payment-btn" class="btn btn-primary btn-lg" disabled>
+                                    <i class="bi bi-credit-card me-2"></i>Continue to Payment
+                                </button>
+                                <p class="text-muted small text-center mt-2 mb-0">
+                                    <i class="bi bi-shield-check me-1"></i>
+                                    Secure payment powered by industry-standard encryption
+                                </p>
                             </div>
                         </div>
                     </div>

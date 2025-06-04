@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateSeatInfo();
             updateSelectedSeatsDisplay();
             updateTicketInfo();
+            updatePaymentButtonState();
         });
     });
     
@@ -64,18 +65,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Payment button interactions
-    paymentBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
+    // Continue to Payment button functionality
+    const continuePaymentBtn = document.getElementById('continue-payment-btn');
+    if (continuePaymentBtn) {
+        continuePaymentBtn.addEventListener('click', function() {
             if (selectedSeats.length === 0) {
-                alert('Please select at least one seat');
+                showNotification('Please select at least one seat before proceeding to payment.', 'error');
                 return;
             }
             
-            const paymentMethod = this.classList.contains('qris') ? 'QRIS' : 'Cash';
-            alert(`Processing payment via ${paymentMethod} for ${selectedSeats.length} seat(s): ${selectedSeats.join(', ')}`);
+            // Add button animation
+            this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Preparing...';
+            this.disabled = true;
+            this.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                // Redirect to payment page (no localStorage needed for UI demo)
+                window.location.href = 'payment.html';
+            }, 1000);
         });
-    });
+    }
     
     // Update seat selection info
     function updateSeatInfo() {
@@ -180,6 +189,51 @@ document.addEventListener('DOMContentLoaded', function() {
         // }
     }
 
+    // Function to update payment button state
+    function updatePaymentButtonState() {
+        const continueBtn = document.getElementById('continue-payment-btn');
+        if (continueBtn) {
+            continueBtn.disabled = selectedSeats.length === 0;
+        }
+    }
+    
+    // Function to save booking data
+    function saveBookingData() {
+        const activeDateCard = document.querySelector('.date-card.active');
+        const activeTimeButton = document.querySelector('.time-btn.active');
+        
+        const pricePerTicket = 55000;
+        const subtotal = selectedSeats.length * pricePerTicket;
+        const discount = Math.min(20000, subtotal * 0.1);
+        const total = subtotal - discount;
+        
+        const bookingData = {
+            movie: {
+                title: 'Interstellar (2014)',
+                poster: 'https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',
+                genres: ['Sci-Fi', 'Action']
+            },
+            showtime: {
+                date: activeDateCard ? activeDateCard.dataset.date : '2025-06-02',
+                time: activeTimeButton ? activeTimeButton.dataset.time : '07:30',
+                dateDisplay: activeDateCard ? activeDateCard.querySelector('.date-header').textContent + ', ' + activeDateCard.querySelector('.date-day').textContent : 'Jun 02, sunday',
+                timeDisplay: activeTimeButton ? activeTimeButton.textContent : '7.30 AM'
+            },
+            seats: selectedSeats,
+            pricing: {
+                pricePerTicket: pricePerTicket,
+                subtotal: subtotal,
+                discount: discount,
+                total: total,
+                ticketCount: selectedSeats.length
+            },
+            bookingId: 'BK' + Date.now(),
+            timestamp: new Date().toISOString()
+        };
+        
+        localStorage.setItem('movieBookingData', JSON.stringify(bookingData));
+    }
+
     // Cinema selection change - This event listener will cause an error as the select element was removed.
     // document.querySelector('select').addEventListener('change', updateBookingSummary);
 
@@ -198,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSelectedSeatsDisplay();
     updateTicketInfo();
     updateBookingSummary();
+    updatePaymentButtonState();
 });
 
 // Add some hover effects and animations
@@ -246,3 +301,39 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// Notification function for better UX
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `alert alert-${type === 'error' ? 'danger' : 'success'} notification-popup`;
+    notification.innerHTML = `
+        <i class="bi bi-${type === 'error' ? 'exclamation-triangle' : 'check-circle'} me-2"></i>
+        ${message}
+    `;
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        min-width: 300px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}

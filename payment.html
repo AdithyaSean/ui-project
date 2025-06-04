@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Movie Ticket Booking</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand fw-bold" href="index.html">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Now Showing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Upcoming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Progress Indicator -->
+    <div class="container-fluid py-3 bg-light border-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="payment-progress">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="progress-step completed">
+                                <div class="step-circle">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <span class="step-label">Select Seats</span>
+                            </div>
+                            <div class="progress-line completed"></div>
+                            <div class="progress-step active">
+                                <div class="step-circle">
+                                    <i class="bi bi-credit-card"></i>
+                                </div>
+                                <span class="step-label">Payment</span>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-step">
+                                <div class="step-circle">
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
+                                <span class="step-label">Confirmation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-4 main-content">
+        <div class="row g-4 justify-content-center">
+            <!-- Left Section - Payment Form -->
+            <div class="col-lg-8">
+                <!-- Page Title -->
+                <div class="d-flex align-items-center mb-4">
+                    <a href="index.html" class="btn btn-outline-secondary me-3">
+                        <i class="bi bi-arrow-left"></i> Back
+                    </a>
+                    <h1 class="movie-title display-6 fw-bold mb-0">Complete Your Payment</h1>
+                </div>
+
+                <!-- Payment Methods Section -->
+                <div class="card shadow-lg border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h5 class="section-title mb-4">
+                            <i class="bi bi-credit-card-2-front me-2"></i>Payment Method
+                        </h5>
+                        
+                        <div class="row g-3 payment-methods">
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="payment-method" id="credit-card" value="credit-card" checked>
+                                <label class="btn btn-outline-primary payment-method-btn w-100 p-3" for="credit-card">
+                                    <i class="bi bi-credit-card display-6 mb-2"></i>
+                                    <div class="fw-bold">Credit/Debit Card</div>
+                                    <small class="text-muted">Visa, Mastercard, Amex</small>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="payment-method" id="digital-wallet" value="digital-wallet">
+                                <label class="btn btn-outline-primary payment-method-btn w-100 p-3" for="digital-wallet">
+                                    <i class="bi bi-wallet2 display-6 mb-2"></i>
+                                    <div class="fw-bold">Digital Wallet</div>
+                                    <small class="text-muted">PayPal, Apple Pay, Google Pay</small>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="payment-method" id="bank-transfer" value="bank-transfer">
+                                <label class="btn btn-outline-primary payment-method-btn w-100 p-3" for="bank-transfer">
+                                    <i class="bi bi-bank display-6 mb-2"></i>
+                                    <div class="fw-bold">Bank Transfer</div>
+                                    <small class="text-muted">Online Banking</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Details Form -->
+                <div class="card shadow-lg border-0 mb-4" id="payment-form-card">
+                    <div class="card-body p-4">
+                        <h5 class="section-title mb-4">
+                            <i class="bi bi-person-check me-2"></i>Payment Details
+                        </h5>
+
+                        <form id="payment-form" class="needs-validation" novalidate>
+                            <!-- Credit Card Form (Default) -->
+                            <div id="credit-card-form" class="payment-form-section">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="card-holder-name" class="form-label">Cardholder Name</label>
+                                        <input type="text" class="form-control form-control-lg" id="card-holder-name" placeholder="Enter full name as on card" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid cardholder name.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="card-number" class="form-label">Card Number</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-lg" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                            <span class="input-group-text">
+                                                <img src="https://img.icons8.com/color/24/000000/visa.png" alt="Visa" class="card-icon" id="card-type-icon">
+                                            </span>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid card number.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="expiry-date" class="form-label">Expiry Date</label>
+                                        <input type="text" class="form-control form-control-lg" id="expiry-date" placeholder="MM/YY" maxlength="5" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid expiry date.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="cvv" class="form-label">CVV</label>
+                                        <input type="text" class="form-control form-control-lg" id="cvv" placeholder="123" maxlength="4" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid CVV.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Digital Wallet Form -->
+                            <div id="digital-wallet-form" class="payment-form-section d-none">
+                                <div class="text-center py-4">
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary btn-lg w-100 wallet-btn" data-wallet="paypal">
+                                                <i class="bi bi-paypal me-2"></i>PayPal
+                                            </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-dark btn-lg w-100 wallet-btn" data-wallet="apple-pay">
+                                                <i class="bi bi-apple me-2"></i>Apple Pay
+                                            </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-success btn-lg w-100 wallet-btn" data-wallet="google-pay">
+                                                <i class="bi bi-google me-2"></i>Google Pay
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mt-3">You will be redirected to your selected payment provider to complete the transaction.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bank Transfer Form -->
+                            <div id="bank-transfer-form" class="payment-form-section d-none">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="bank-select" class="form-label">Select Your Bank</label>
+                                        <select class="form-select form-select-lg" id="bank-select" required>
+                                            <option value="">Choose your bank...</option>
+                                            <option value="commercial-bank">Commercial Bank of Ceylon</option>
+                                            <option value="peoples-bank">People's Bank</option>
+                                            <option value="bank-of-ceylon">Bank of Ceylon</option>
+                                            <option value="sampath-bank">Sampath Bank</option>
+                                            <option value="hatton-national">Hatton National Bank</option>
+                                            <option value="dfcc-bank">DFCC Bank</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select your bank.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="alert alert-info">
+                                            <i class="bi bi-info-circle me-2"></i>
+                                            You will be redirected to your bank's online portal to complete the payment securely.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Billing Address -->
+                            <div class="mt-4" id="billing-address-section">
+                                <h6 class="fw-bold mb-3">Billing Address</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="billing-email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="billing-email" placeholder="your@email.com" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email address.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="billing-phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="billing-phone" placeholder="+94 77 123 4567" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid phone number.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="billing-address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="billing-address" placeholder="Street address" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid address.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="billing-city" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="billing-city" placeholder="Colombo" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid city.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="billing-postal" class="form-label">Postal Code</label>
+                                        <input type="text" class="form-control" id="billing-postal" placeholder="00100" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid postal code.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terms-agreement" required>
+                                    <label class="form-check-label" for="terms-agreement">
+                                        I agree to the <a href="#" class="text-primary">Terms and Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree to the terms and conditions.
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section - Order Summary -->
+            <div class="col-lg-4">
+                <!-- Order Summary Card -->
+                <div class="card shadow-lg border-0 sticky-top booking-summary-card">
+                    <div class="card-body p-4">
+                        <h5 class="section-title mb-4">
+                            <i class="bi bi-receipt me-2"></i>Order Summary
+                        </h5>
+                        
+                        <!-- Movie Information -->
+                        <div class="movie-info-summary mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://image.tmdb.org/t/p/w200/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar" class="movie-poster-small me-3">
+                                <div>
+                                    <h6 class="mb-1 fw-bold">Interstellar (2014)</h6>
+                                    <span class="badge bg-primary">Sci-Fi</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Booking Details -->
+                            <div class="booking-details mb-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Date & Time:</span>
+                                    <span class="fw-medium" id="summary-date-time">Today, 7:00 PM</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Cinema:</span>
+                                    <span class="fw-medium">Liberty Cinema Colombo</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Screen:</span>
+                                    <span class="fw-medium">Screen 1 - IMAX</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Selected Seats -->
+                        <div class="selected-seats mb-4">
+                            <h6 class="fw-bold mb-3">Selected Seats</h6>
+                            <div class="seat-pills">
+                                <span class="badge bg-primary me-1 mb-1">D6</span>
+                                <span class="badge bg-primary me-1 mb-1">D7</span>
+                                <span class="badge bg-primary me-1 mb-1">D8</span>
+                                <span class="badge bg-primary me-1 mb-1">D9</span>
+                            </div>
+                        </div>
+
+                        <!-- Price Breakdown -->
+                        <div class="price-breakdown-modern">
+                            <h6 class="fw-bold mb-3">Price Breakdown</h6>
+                            <div class="price-item d-flex justify-content-between mb-2">
+                                <span>4 Tickets</span>
+                                <span>LKR 2,200.00</span>
+                            </div>
+                            <div class="price-item d-flex justify-content-between mb-2">
+                                <span>Convenience Fee</span>
+                                <span>LKR 80.00</span>
+                            </div>
+                            <div class="price-item d-flex justify-content-between mb-2">
+                                <span>GST (8%)</span>
+                                <span>LKR 182.40</span>
+                            </div>
+                            <div class="price-item d-flex justify-content-between mb-3 text-success">
+                                <span>Discount</span>
+                                <span>- LKR 200.00</span>
+                            </div>
+                            <hr>
+                            <div class="price-total d-flex justify-content-between fw-bold fs-5">
+                                <span>Total Amount</span>
+                                <span class="text-primary">LKR 2,262.40</span>
+                            </div>
+                        </div>
+
+                        <!-- Security Notice -->
+                        <div class="security-notice mt-4 p-3 bg-light rounded">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-shield-check text-success me-2"></i>
+                                <small class="text-muted">Your payment is secured with 256-bit SSL encryption</small>
+                            </div>
+                        </div>
+
+                        <!-- Pay Now Button -->
+                        <button type="submit" form="payment-form" class="btn btn-primary btn-lg w-100 mt-4 pay-now-btn">
+                            <i class="bi bi-credit-card me-2"></i>
+                            Pay LKR 2,262.40
+                        </button>
+
+                        <!-- Alternative Actions -->
+                        <div class="text-center mt-3">
+                            <small class="text-muted">
+                                Need help? <a href="#" class="text-primary">Contact Support</a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">MovieTicker</h6>
+                    <p>Your premier destination for booking movie tickets online. Experience cinema like never before with our seamless booking platform.</p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Company</h6>
+                    <p><a href="#!" class="text-reset">About MovieTicker</a></p>
+                    <p><a href="#!" class="text-reset">Careers</a></p>
+                    <p><a href="#!" class="text-reset">Media & Press</a></p>
+                    <p><a href="#!" class="text-reset">Affiliate Program</a></p>
+                    <p><a href="#!" class="text-reset">Become a Partner</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Bookings</h6>
+                    <p><a href="#!" class="text-reset">Now Showing</a></p>
+                    <p><a href="#!" class="text-reset">Coming Soon</a></p>
+                    <p><a href="#!" class="text-reset">Book by Location</a></p>
+                    <p><a href="#!" class="text-reset">Movie Genres</a></p>
+                    <p><a href="#!" class="text-reset">Offers & Gift Cards</a></p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Support</h6>
+                    <p><a href="#!" class="text-reset">FAQs</a></p>
+                    <p><a href="#!" class="text-reset">Ticket Cancellation Policy</a></p>
+                    <p><a href="#!" class="text-reset">Payment Methods</a></p>
+                    <p><a href="#!" class="text-reset">Refund Policy</a></p>
+                    <p><a href="#!" class="text-reset">Customer Support Chat</a></p>
+                </div>
+                
+                <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+                    <p><i class="bi bi-telephone-fill me-3"></i> Hotline: +94 76 456 7890</p>
+                    <p><i class="bi bi-envelope-fill me-3"></i> Email: help@movieticker.lk</p>
+                    <p><i class="bi bi-clock-fill me-3"></i> Office Hours: Mon - Fri, 9AM - 6PM</p>
+                    <p><i class="bi bi-geo-alt-fill me-3"></i> Location: No. 456, Liberty Plaza, Colombo 03, Sri Lanka</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h6 class="text-uppercase fw-bold mb-3">Legal & Policies</h6>
+                    <p class="mb-1"><a href="#!" class="text-reset">Terms of Use</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Privacy Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Cookie Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Accessibility</a></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h6 class="text-uppercase fw-bold mb-3">Download Our App</h6>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-apple"></i>
+                    </a>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-google-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 MovieTicker.lk | Crafted with Passion for Cinema Lovers. All Rights Reserved.
+            Powered by <a class="text-white" href="#">Dinod Tharinda</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html>

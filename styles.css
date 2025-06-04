@@ -236,233 +236,687 @@ body {
     color: var(--text-muted-color);
 }
 
-/* Enhanced responsiveness for different screen sizes */
-@media (max-width: 1200px) {
-    .seating-chart-modern {
-        padding: 0.75rem;
-        gap: 0.3rem;
-    }
+/* Payment Page Styles */
+
+/* Payment Progress Indicator */
+.payment-progress {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-@media (max-width: 991px) {
-    .navbar-collapse {
-        text-align: center;
-    }
-    
-    .navbar-nav {
-        align-items: center;
-    }
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
 }
 
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--seat-available-bg);
+    color: var(--text-muted-color);
+    border: 2px solid var(--seat-available-border);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.progress-step.completed .step-circle {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.progress-step.active .step-circle {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(106, 17, 203, 0.2);
+}
+
+.step-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted-color);
+}
+
+.progress-step.completed .step-label,
+.progress-step.active .step-label {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.progress-line {
+    height: 2px;
+    background-color: var(--seat-available-border);
+    flex: 1;
+    margin: 0 1rem;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+.progress-line.completed {
+    background-color: var(--primary-color);
+}
+
+/* Payment Method Selection */
+.payment-method-btn {
+    height: auto;
+    text-align: center;
+    transition: all 0.2s ease;
+    border-width: 2px;
+}
+
+.payment-method-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.payment-method-btn.active,
+.btn-check:checked + .payment-method-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+}
+
+.payment-method-btn.active small,
+.btn-check:checked + .payment-method-btn small {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Payment Form Sections */
+.payment-form-section {
+    transition: all 0.3s ease;
+}
+
+.form-control-lg {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
+}
+
+/* Card Type Icon */
+.card-icon {
+    width: 24px;
+    height: auto;
+}
+
+/* Wallet Buttons */
+.wallet-btn {
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.wallet-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Movie Poster Small */
+.movie-poster-small {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Security Notice */
+.security-notice {
+    border: 1px solid #e3f2fd;
+    background-color: #f8f9fa !important;
+}
+
+/* Pay Now Button */
+.pay-now-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+    transition: all 0.3s ease;
+}
+
+.pay-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+}
+
+.pay-now-btn:active {
+    transform: translateY(0);
+}
+
+/* Form Validation Styles */
+.was-validated .form-control:valid,
+.form-control.is-valid {
+    border-color: #28a745;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='m2.3 6.73.94-.94 1.96 1.96L7.84 4.1l.94.94L4.24 9.58z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='m5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Enhanced responsive design for payment page */
 @media (max-width: 768px) {
-    .seating-chart-modern {
-        padding: 0.5rem;
-        gap: 0.25rem;
-        background: transparent; /* Remove background on mobile for cleaner look */
+    .payment-progress {
+        max-width: 100%;
     }
     
-    .seat-row {
-        gap: 0.2rem;
+    .progress-step {
+        flex-direction: column;
+        margin-bottom: 1rem;
     }
     
-    .row-label {
-        margin-right: 0.3rem;
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .progress-line {
+        display: none;
+    }
+    
+    .payment-method-btn {
+        margin-bottom: 1rem;
+    }
+    
+    .movie-poster-small {
+        width: 50px;
+        height: 75px;
     }
 }
 
 @media (max-width: 576px) {
-    .seating-chart-modern {
-        padding: 0.25rem;
+    .step-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
     }
     
-    .seat-row {
-        gap: 0.15rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .seating-chart-modern {
-        padding: 0.25rem 0;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+    .step-label {
+        font-size: 0.8rem;
     }
     
-    .seat-row {
-        min-width: max-content;
-        padding: 0 0.5rem;
+    .payment-method-btn {
+        padding: 1.5rem 1rem;
     }
     
-    .seat {
-        min-width: 22px;
-        min-height: 18px;
+    .pay-now-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Confirmation Page Styles */
+.success-icon {
+    animation: successPulse 2s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+}
+
+.info-item {
+    margin-bottom: 1rem;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    font-size: 1rem;
+}
+
+.qr-code-placeholder {
+    background: linear-gradient(45deg, #f8f9fa 25%, transparent 25%), 
+                linear-gradient(-45deg, #f8f9fa 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #f8f9fa 75%), 
+                linear-gradient(-45deg, transparent 75%, #f8f9fa 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    border: 2px dashed #dee2e6;
+}
+
+/* Print styles for tickets */
+@media print {
+    .navbar, .footer, .btn, .card:not(.booking-details-card) {
+        display: none !important;
     }
     
-    .row-label {
-        min-width: 16px;
-        margin-right: 0.25rem;
+    .booking-details-card {
+        box-shadow: none !important;
+        border: 2px solid #000 !important;
+    }
+    
+    body {
+        background: white !important;
     }
 }
 
-/* Screen responsive adjustments */
-.screen-modern {
-    margin: 1.5rem auto 2rem auto;
-    width: clamp(50%, 400px, 80%); /* More responsive screen width */
-    max-width: 500px;
+/* Enhanced Animation Classes and Keyframes */
+
+/* Fade Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.screen-label {
-    background: var(--screen-bg);
-    color: white;
-    padding: clamp(0.5rem, 2vw, 0.8rem) clamp(1rem, 4vw, 2rem);
-    border-radius: 8px 8px 0 0;
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-align: center;
-    display: block;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    clip-path: polygon(0% 0%, 100% 0%, 92% 100%, 8% 100%);
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Remove default Bootstrap focus outline and use custom if needed */
-.btn:focus, .form-control:focus, .form-select:focus {
-    box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25); /* Purple focus glow */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-/* Ensure sticky top works well with navbar */
-.sticky-top {
-    top: calc(var(--navbar-height, 70px) + 1rem); /* Adjust based on actual navbar height */
-}
-/* Add a class to body or html to set navbar height if dynamic */
-:root {
-    --navbar-height: 70px; /* Default, can be updated by JS if navbar height is dynamic */
-}
-
-/* Add a bit more space for the main content from the navbar */
-.main-content {
-    padding-top: 1rem;
+/* Scale Animations */
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
-/* Ensure the footer is at the bottom */
-html, body {
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Slide Animations */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Loading Animations */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* Ripple Effect Animation */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Utility Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-scale {
+    animation: fadeInScale 0.4s ease-out forwards;
+}
+
+.scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+}
+
+.bounce-in {
+    animation: bounceIn 0.6s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Staggered Animation Classes */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Loading States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: shimmer 1.5s infinite;
 }
 
-/* Booking Summary Card */
-.booking-summary-card .card-body {
-    padding: 1.5rem; /* Consistent padding */
-}
-.movie-info-summary h5 {
-    font-size: 1.1rem; /* Slightly smaller title */
-    font-weight: 600;
-}
-.movie-info-summary .badge {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
-    background-color: #e9ecef !important; /* Light grey badges */
-    color: #495057 !important; /* Darker text for badges */
-    border: none;
-}
-#booking-date-time {
-    font-size: 0.85rem;
-}
-.selected-seats h6, .price-breakdown-modern h6 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-color);
-}
-.seat-pills .badge {
-    background-color: var(--seat-selected-bg) !important; /* Purple for selected seat pills */
-    color: white !important;
-    font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
-}
-.price-item, .price-total {
-    font-size: 0.9rem;
-}
-.price-total {
-    color: var(--text-color);
-}
-#total-price {
-    color: var(--primary-color); /* Purple total price */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-/* Payment Buttons */
-.payment-options-modern .btn {
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    font-weight: 500;
-    font-size: 0.95rem;
+/* Enhanced Button Animations */
+.btn-animated {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
-.payment-options-modern .btn-primary {
-    background-color: var(--primary-color);
+
+.btn-animated::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-animated:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-animated:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-animated:active {
+    transform: translateY(0);
+}
+
+/* Ripple Effect for Buttons */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    top: var(--ripple-top);
+    left: var(--ripple-left);
+    width: var(--ripple-size);
+    height: var(--ripple-size);
+}
+
+/* Enhanced Form Animations */
+.form-group-animated {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-control-animated {
+    transition: all 0.3s ease;
+    border: 2px solid var(--seat-available-border);
+}
+
+.form-control-animated:focus {
+    transform: scale(1.02);
     border-color: var(--primary-color);
-}
-.payment-options-modern .btn-primary:hover {
-    background-color: #520ead; /* Darker purple on hover */
-    border-color: #520ead;
-}
-.payment-options-modern .btn-outline-primary {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-.payment-options-modern .btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
 }
 
-
-/* Footer */
-.footer {
-    background-color: #1c1c1c; /* Darker footer */
-    font-size: 0.9rem;
-}
-.footer h6 {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-.footer a {
-    text-decoration: none;
-}
-.footer a:hover {
-    text-decoration: underline;
-    color: #aaa !important;
-}
-.footer .btn-outline-light {
-    border-color: #555;
-    color: #ccc;
-}
-.footer .btn-outline-light:hover {
-    border-color: #777;
-    background-color: #333;
-    color: white;
+.form-control-animated.is-valid {
+    border-color: #28a745;
+    animation: pulse 0.5s ease-out;
 }
 
-/* Utility for main title */
-.movie-title {
-    color: var(--text-color);
-    font-weight: 700; /* Bolder title */
+.form-control-animated.is-invalid {
+    border-color: #dc3545;
+    animation: pulse 0.5s ease-out;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .movie-title {
-        font-size: 1.8rem; /* Smaller title on mobile */
+/* Card Hover Effects */
+.card-hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Notification Animation */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    max-width: 350px;
+    animation: slideInFromRight 0.3s ease-out;
+}
+
+.notification.fade-out {
+    animation: fadeInUp 0.3s ease-out reverse;
+}
+
+/* Enhanced Progress Animation */
+.progress-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-animated .progress-bar {
+    animation: slideInFromLeft 1s ease-out;
+}
+
+/* Loading Dots */
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: loadingDots 1.5s infinite;
+}
+
+@keyframes loadingDots {
+    0%, 20% {
+        content: '';
     }
-    .date-selection-row, .time-selection-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Better wrapping */
-        gap: 0.5rem;
+    40% {
+        content: '.';
     }
-    .seat {
-        width: 26px;
-        height: 22px;
-        font-size: 0.6rem;
+    60% {
+        content: '..';
     }
-    .row-label {
-        font-size: 0.75rem;
+    80%, 100% {
+        content: '...';
     }
-    .screen-modern {
-        width: 80%;
+}
+
+/* Enhanced Transitions for Existing Elements */
+.date-card,
+.time-btn,
+.seat,
+.payment-method-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+/* Success Animation Enhancement */
+@keyframes successPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+}
+
+/* Enhanced Movie Poster Animation */
+.movie-poster-small {
+    transition: all 0.3s ease;
+}
+
+.movie-poster-small:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth Page Transitions */
+.page-transition {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Enhanced Responsive Animations */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
