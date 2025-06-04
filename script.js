@@ -75,13 +75,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Add button animation
-            this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Preparing...';
+            this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing Booking...';
             this.disabled = true;
             this.style.transform = 'scale(0.95)';
             
+            // Save booking data before redirecting
+            saveBookingData();
+            
             setTimeout(() => {
-                // Redirect to payment page (no localStorage needed for UI demo)
-                window.location.href = 'payment.html';
+                // Redirect directly to confirmation page
+                window.location.href = 'confirmation.html';
             }, 1000);
         });
     }
