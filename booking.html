@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - Interstellar | MovieTicker</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand fw-bold" href="index.html">MovieTicker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#now-showing">Now Showing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#upcoming">Upcoming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bookings">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4 main-content">
+        <div class="row g-4 justify-content-center">
+            <!-- Left Section - Movie Details, Date/Time, Seat Selection -->
+            <div class="col-lg-8">
+                <!-- Movie Title -->
+                <h1 class="movie-title display-5 fw-bold mb-4">Interstellar (2014)</h1>
+
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4">
+                        <!-- Date Selection -->
+                        <div class="mb-4">
+                            <h5 class="mb-3 section-title text-center"><i class="bi bi-calendar3 me-2"></i>Date</h5>
+                            <div class="row g-2 date-selection-row justify-content-center">
+                                <div class="col-auto">
+                                    <div class="date-card active" data-date="2025-06-02">
+                                        <div class="date-header">Jun <strong>02</strong></div>
+                                        <div class="date-day">sunday</div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="date-card" data-date="2025-06-03">
+                                        <div class="date-header">Jun <strong>03</strong></div>
+                                        <div class="date-day">monday</div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="date-card" data-date="2025-06-04">
+                                        <div class="date-header">Jun <strong>04</strong></div>
+                                        <div class="date-day">tuesday</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Time Selection -->
+                        <div class="mb-4">
+                            <h5 class="mb-3 section-title text-center"><i class="bi bi-clock me-2"></i>Time</h5>
+                            <div class="row g-2 time-selection-row justify-content-center">
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn active" data-time="07:30">7.30 AM</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn" data-time="10:45">10.45 AM</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn" data-time="15:00">3.00 PM</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn time-btn" data-time="19:45">7.45 PM</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen and Seating Chart -->
+                        <div class="text-center mb-3">
+                            <div class="screen-modern">
+                                <span class="screen-label">SCREEN</span>
+                            </div>
+                        </div>
+                        <div class="seating-chart-modern mb-4">
+                            <!-- Rows A to J with more seats -->
+                            <!-- Row A -->
+                            <div class="seat-row">
+                                <div class="row-label">A</div>
+                                <div class="seat available" data-seat="A1">1</div>
+                                <div class="seat available" data-seat="A2">2</div>
+                                <div class="seat available" data-seat="A3">3</div>
+                                <div class="seat available" data-seat="A4">4</div>
+                                <div class="seat available" data-seat="A5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="A6">6</div>
+                                <div class="seat available" data-seat="A7">7</div>
+                                <div class="seat available" data-seat="A8">8</div>
+                                <div class="seat available" data-seat="A9">9</div>
+                                <div class="seat available" data-seat="A10">10</div>
+                                <div class="seat available" data-seat="A11">11</div>
+                                <div class="seat available" data-seat="A12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat unavailable" data-seat="A13">13</div>
+                                <div class="seat unavailable" data-seat="A14">14</div>
+                            </div>
+                            <!-- Row B -->
+                            <div class="seat-row">
+                                <div class="row-label">B</div>
+                                <div class="seat available" data-seat="B1">1</div>
+                                <div class="seat available" data-seat="B2">2</div>
+                                <div class="seat available" data-seat="B3">3</div>
+                                <div class="seat available" data-seat="B4">4</div>
+                                <div class="seat available" data-seat="B5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="B6">6</div>
+                                <div class="seat available" data-seat="B7">7</div>
+                                <div class="seat available" data-seat="B8">8</div>
+                                <div class="seat available" data-seat="B9">9</div>
+                                <div class="seat available" data-seat="B10">10</div>
+                                <div class="seat available" data-seat="B11">11</div>
+                                <div class="seat available" data-seat="B12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="B13">13</div>
+                                <div class="seat available" data-seat="B14">14</div>
+                            </div>
+                            <!-- Row C -->
+                            <div class="seat-row">
+                                <div class="row-label">C</div>
+                                <div class="seat available" data-seat="C1">1</div>
+                                <div class="seat available" data-seat="C2">2</div>
+                                <div class="seat unavailable" data-seat="C3">3</div>
+                                <div class="seat unavailable" data-seat="C4">4</div>
+                                <div class="seat available" data-seat="C5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="C6">6</div>
+                                <div class="seat available" data-seat="C7">7</div>
+                                <div class="seat available" data-seat="C8">8</div>
+                                <div class="seat unavailable" data-seat="C9">9</div>
+                                <div class="seat unavailable" data-seat="C10">10</div>
+                                <div class="seat available" data-seat="C11">11</div>
+                                <div class="seat available" data-seat="C12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="C13">13</div>
+                                <div class="seat available" data-seat="C14">14</div>
+                            </div>
+                            <!-- Row D -->
+                            <div class="seat-row">
+                                <div class="row-label">D</div>
+                                <div class="seat available" data-seat="D1">1</div>
+                                <div class="seat available" data-seat="D2">2</div>
+                                <div class="seat available" data-seat="D3">3</div>
+                                <div class="seat available" data-seat="D4">4</div>
+                                <div class="seat available" data-seat="D5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="D6">6</div>
+                                <div class="seat available" data-seat="D7">7</div>
+                                <div class="seat available" data-seat="D8">8</div>
+                                <div class="seat available" data-seat="D9">9</div>
+                                <div class="seat available" data-seat="D10">10</div>
+                                <div class="seat available" data-seat="D11">11</div>
+                                <div class="seat available" data-seat="D12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="D13">13</div>
+                                <div class="seat available" data-seat="D14">14</div>
+                            </div>
+                            <!-- Row E -->
+                            <div class="seat-row">
+                                <div class="row-label">E</div>
+                                <div class="seat available" data-seat="E1">1</div>
+                                <div class="seat available" data-seat="E2">2</div>
+                                <div class="seat available" data-seat="E3">3</div>
+                                <div class="seat available" data-seat="E4">4</div>
+                                <div class="seat unavailable" data-seat="E5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat unavailable" data-seat="E6">6</div>
+                                <div class="seat available" data-seat="E7">7</div>
+                                <div class="seat available" data-seat="E8">8</div>
+                                <div class="seat available" data-seat="E9">9</div>
+                                <div class="seat available" data-seat="E10">10</div>
+                                <div class="seat available" data-seat="E11">11</div>
+                                <div class="seat available" data-seat="E12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="E13">13</div>
+                                <div class="seat available" data-seat="E14">14</div>
+                            </div>
+                            <!-- Row F -->
+                            <div class="seat-row">
+                                <div class="row-label">F</div>
+                                <div class="seat available" data-seat="F1">1</div>
+                                <div class="seat available" data-seat="F2">2</div>
+                                <div class="seat available" data-seat="F3">3</div>
+                                <div class="seat available" data-seat="F4">4</div>
+                                <div class="seat available" data-seat="F5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="F6">6</div>
+                                <div class="seat available" data-seat="F7">7</div>
+                                <div class="seat available" data-seat="F8">8</div>
+                                <div class="seat available" data-seat="F9">9</div>
+                                <div class="seat available" data-seat="F10">10</div>
+                                <div class="seat available" data-seat="F11">11</div>
+                                <div class="seat available" data-seat="F12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="F13">13</div>
+                                <div class="seat available" data-seat="F14">14</div>
+                            </div>
+                            <!-- Row G -->
+                            <div class="seat-row">
+                                <div class="row-label">G</div>
+                                <div class="seat available" data-seat="G1">1</div>
+                                <div class="seat available" data-seat="G2">2</div>
+                                <div class="seat available" data-seat="G3">3</div>
+                                <div class="seat available" data-seat="G4">4</div>
+                                <div class="seat available" data-seat="G5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="G6">6</div>
+                                <div class="seat available" data-seat="G7">7</div>
+                                <div class="seat available" data-seat="G8">8</div>
+                                <div class="seat available" data-seat="G9">9</div>
+                                <div class="seat available" data-seat="G10">10</div>
+                                <div class="seat available" data-seat="G11">11</div>
+                                <div class="seat available" data-seat="G12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="G13">13</div>
+                                <div class="seat available" data-seat="G14">14</div>
+                            </div>
+                            <!-- Row H -->
+                            <div class="seat-row">
+                                <div class="row-label">H</div>
+                                <div class="seat available" data-seat="H1">1</div>
+                                <div class="seat available" data-seat="H2">2</div>
+                                <div class="seat available" data-seat="H3">3</div>
+                                <div class="seat available" data-seat="H4">4</div>
+                                <div class="seat available" data-seat="H5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="H6">6</div>
+                                <div class="seat available" data-seat="H7">7</div>
+                                <div class="seat unavailable" data-seat="H8">8</div>
+                                <div class="seat unavailable" data-seat="H9">9</div>
+                                <div class="seat available" data-seat="H10">10</div>
+                                <div class="seat available" data-seat="H11">11</div>
+                                <div class="seat available" data-seat="H12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="H13">13</div>
+                                <div class="seat available" data-seat="H14">14</div>
+                            </div>
+                            <!-- Row I -->
+                            <div class="seat-row">
+                                <div class="row-label">I</div>
+                                <div class="seat available" data-seat="I1">1</div>
+                                <div class="seat available" data-seat="I2">2</div>
+                                <div class="seat available" data-seat="I3">3</div>
+                                <div class="seat available" data-seat="I4">4</div>
+                                <div class="seat available" data-seat="I5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="I6">6</div>
+                                <div class="seat available" data-seat="I7">7</div>
+                                <div class="seat available" data-seat="I8">8</div>
+                                <div class="seat available" data-seat="I9">9</div>
+                                <div class="seat available" data-seat="I10">10</div>
+                                <div class="seat available" data-seat="I11">11</div>
+                                <div class="seat available" data-seat="I12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="I13">13</div>
+                                <div class="seat available" data-seat="I14">14</div>
+                            </div>
+                            <!-- Row J -->
+                            <div class="seat-row">
+                                <div class="row-label">J</div>
+                                <div class="seat available" data-seat="J1">1</div>
+                                <div class="seat available" data-seat="J2">2</div>
+                                <div class="seat available" data-seat="J3">3</div>
+                                <div class="seat available" data-seat="J4">4</div>
+                                <div class="seat available" data-seat="J5">5</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="J6">6</div>
+                                <div class="seat available" data-seat="J7">7</div>
+                                <div class="seat available" data-seat="J8">8</div>
+                                <div class="seat available" data-seat="J9">9</div>
+                                <div class="seat available" data-seat="J10">10</div>
+                                <div class="seat available" data-seat="J11">11</div>
+                                <div class="seat available" data-seat="J12">12</div>
+                                <div class="seat-gap"></div>
+                                <div class="seat available" data-seat="J13">13</div>
+                                <div class="seat available" data-seat="J14">14</div>
+                            </div>
+                        </div>
+
+                        <!-- Seat Legend -->
+                        <div class="row g-3 text-center justify-content-center mb-4 seat-legend-container">
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center seat-legend">
+                                    <div class="seat small available me-2"></div> Available
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center seat-legend">
+                                    <div class="seat small selected me-2"></div> Selected
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center seat-legend">
+                                    <div class="seat small unavailable me-2"></div> Unavailable
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info d-none">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <strong>Select seats</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Section - Movie Poster and Booking Summary -->
+            <div class="col-lg-4">
+                <!-- Movie Poster -->
+                <div class="movie-poster-container mb-4 text-center">
+                    <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar Movie Poster" class="img-fluid rounded shadow">
+                </div>
+
+                <div class="card shadow-lg border-0 sticky-top booking-summary-card">
+                    <div class="card-body p-4">
+                        <!-- Movie Info in Booking Summary -->
+                        <div class="movie-info-summary mb-3">
+                            <h5 class="fw-bold text-dark mb-1">Interstellar (2014)</h5>
+                            <div class="d-flex gap-2 mb-2">
+                                <span class="badge bg-secondary">Sci-Fi</span>
+                                <span class="badge bg-secondary">Action</span>
+                            </div>
+                            <p class="mb-1 small text-muted" id="booking-date-time">Date & Time: <span class="fw-semibold">Jun 02, sunday, 7.30 AM</span></p>
+                        </div>
+
+                        <!-- Selected Seats -->
+                        <div class="selected-seats mb-3">
+                            <h6 class="fw-bold mb-2">Selected Seats (<span id="selected-seat-count">0</span>)</h6>
+                            <div class="seat-pills">
+                                <span class="text-muted">No seats selected</span>
+                            </div>
+                        </div>
+
+                        <!-- Price Breakdown -->
+                        <div class="price-breakdown-modern mb-4">
+                            <h6 class="fw-bold mb-2">Price</h6>
+                            <div class="price-item d-flex justify-content-between">
+                                <span><span id="num-tickets">0</span> Tickets</span>
+                                <span id="subtotal-price">IDR 0</span>
+                            </div>
+                            <div class="price-item d-flex justify-content-between text-danger">
+                                <span>Discount</span>
+                                <span id="discount-price">- IDR 0</span>
+                            </div>
+                            <hr class="my-2">
+                            <div class="price-total d-flex justify-content-between fw-bold fs-5">
+                                <span>Total</span>
+                                <span id="total-price">IDR 0</span>
+                            </div>
+                        </div>
+
+                        <!-- Continue to Payment -->
+                        <div class="payment-options-modern">
+                            <div class="d-grid gap-2">
+                                <button id="continue-payment-btn" class="btn btn-primary btn-lg" disabled>
+                                    <i class="bi bi-credit-card me-2"></i>Continue to Payment
+                                </button>
+                                <p class="text-muted small text-center mt-2 mb-0">
+                                    <i class="bi bi-shield-check me-1"></i>
+                                    Secure payment powered by industry-standard encryption
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        MovieTicker
+                    </h6>
+                    <p>
+                        MovieTicker.lk is your go-to destination for all things cinema! With a passion for film, we bring you the latest updates, reviews, and ticket sales, ensuring you never miss out on the magic of the movies.
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Company</h6>
+                    <p><a href="#!" class="text-reset">About MovieTicker</a></p>
+                    <p><a href="#!" class="text-reset">Careers</a></p>
+                    <p><a href="#!" class="text-reset">Media & Press</a></p>
+                    <p><a href="#!" class="text-reset">Affiliate Program</a></p>
+                    <p><a href="#!" class="text-reset">Become a Partner</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Bookings</h6>
+                    <p><a href="#!" class="text-reset">Now Showing</a></p>
+                    <p><a href="#!" class="text-reset">Coming Soon</a></p>
+                    <p><a href="#!" class="text-reset">Book by Location</a></p>
+                    <p><a href="#!" class="text-reset">Movie Genres</a></p>
+                    <p><a href="#!" class="text-reset">Offers & Gift Cards</a></p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Support</h6>
+                    <p><a href="#!" class="text-reset">FAQs</a></p>
+                    <p><a href="#!" class="text-reset">Ticket Cancellation Policy</a></p>
+                    <p><a href="#!" class="text-reset">Payment Methods</a></p>
+                    <p><a href="#!" class="text-reset">Refund Policy</a></p>
+                    <p><a href="#!" class="text-reset">Customer Support Chat</a></p>
+                </div>
+                
+                <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+                    <p><i class="bi bi-telephone-fill me-3"></i> Hotline: +94 76 456 7890</p>
+                    <p><i class="bi bi-envelope-fill me-3"></i> Email: help@movieticker.lk</p>
+                    <p><i class="bi bi-clock-fill me-3"></i> Office Hours: Mon - Fri, 9AM - 6PM</p>
+                    <p><i class="bi bi-geo-alt-fill me-3"></i> Location: No. 456, Liberty Plaza, Colombo 03, Sri Lanka</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h6 class="text-uppercase fw-bold mb-3">Legal & Policies</h6>
+                    <p class="mb-1"><a href="#!" class="text-reset">Terms of Use</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Privacy Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Cookie Policy</a></p>
+                    <p class="mb-1"><a href="#!" class="text-reset">Accessibility</a></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h6 class="text-uppercase fw-bold mb-3">Download Our App</h6>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-google-play"></i> Google Play
+                    </a>
+                    <a href="#!" class="btn btn-outline-light btn-floating m-1" role="button">
+                        <i class="bi bi-apple"></i> App Store
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 MovieTicker.lk | Crafted with Passion for Cinema Lovers. All Rights Reserved.
+            Powered by <a class="text-white" href="#">Dinod Tharinda</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
