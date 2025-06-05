@@ -10,6 +10,7 @@
 \usepackage{amssymb}
 \usepackage{mathptmx} % Better Times New Roman implementation
 \usepackage[T1]{fontenc} % Better font encoding
+\usepackage{url} % For hyperlinking URLs
 
 % Customizing section titles to match the document's style (simple and bold)
 \titleformat{\section}
@@ -55,7 +56,7 @@
     
     \vspace{0.3cm}
     
-    {\Large E M A S B EKANAYAKA – COBSCCOMP242-065}
+    {\Large E M A S B EKANAYAKA – COBSCCOMP242-065} % Main author listed on cover
     
     {\Large COVID – 16110762}
     
@@ -84,68 +85,117 @@
 \newpage
 \pagenumbering{arabic} % Start page numbering from here
 
-% --- Coursework Content ---
-
-\section*{Coursework Assessment}
-\renewcommand{\labelitemi}{--} % Change bullet point style for Task 1, 2, 4
-
-\subsection*{Module Name: User Experience Designing}
-
+% --- Team Members Page ---
+\section*{\centering Team Members}
 \vspace{1cm}
+\begin{itemize}
+    \item 16116133 | COBSCCOMP242P-075 \quad M D S Y RANARAYA
+    \item 16114645 | COBSCCOMP242P-060 \quad W A A D T ATHUKORALA
+    \item 16110762 | COBSCCOMP242P-065 \quad E M A S B EKANAYAKA
+    \item 16115826 | COBSCCOMP242P-061 \quad W A A Y R ATHUKORALA
+    \item 16116122 | COBSCCOMP242P-047 \quad K D T R KATHRIACHCHI
+\end{itemize}
+
+\vspace{\fill} % Pushes content to top, useful if list is short
+
+\newpage
+
+% --- Coursework Content ---
 
 \section*{Task 1}
 
 \subsubsection*{What is the primary goal of usability in UI/UX}
-The main aim of usability in UI/UX is to ensuring users can achieve their objectives easily and effectively. [1, 2] This involve identifying any problems in the design that might stop users from having a good experience. [3, 5] Ultimately, it’s about creating products that are not just functional but also pleasant for people to use.
+The main goal for usability in UI/UX, it's about making sure that people using the thing can do what they want to do easy and gud. It means lookin for any problems in how its designd that might stop users to have a good time. In the end, it is making things that don't just work, but are nice for peeple to use.
 
 \subsubsection*{Name two key factors in building a user-friendly interface}
-Two important factors for a user-friendly interface is clarity and consistency. [6, 10] A clear layout helps users understand the interface quickly, and consistency in design elements makes the system predictable and easier to learn, which reduce confusion. [6, 7]
+Two real importent things for a user-friendly interface are, like, making it clear and keepin it consistent. When the layout is clear, users get it quick, and if design bits are consistent, the system feels more the same and is simpler to learn up on, so less konfusing.
 
 \subsubsection*{How does performing a usability study contribute in a design revamp}
-A usability study is very helpful for a design revamp because it show what parts of the current design is not working well for users. [14, 15] This informations help designers make changes that are based on actual user needs and behaviors, leading to a more effective and satisfying new design. [11, 12] It ensures resources are invested into changes that truly matter.
+Doing a usability study is super usefull for a design revamp, cause it shows you exactly what parts of the old design just ain't working for users. This infos helps designers make changes that're based on what users actualy need and how they act, so the new design is way more better and makes people happy. It helps to put money into changes that realy count.
 
 \subsubsection*{Challenges in conducting a usability study}
-One big challenge is finding the right participants who truly represent the target users for the product; if the sample is not right, the findings may be skewed. [16, 20] Another difficulty can be to ensure the test environment reflect how people will actually use the product in their daily lives, as artificial settings may not capture true behavior. [16, 17] Budget and time constraints also often pose significant hurdles.
+One big problem is getting the corect participants, people who really are like the ones who'll use the product; if you get the wrong sort, your findings could be off. Another hard part can be making the test place feel like how people will use the thing in real life, because if it's too fake, they might not act normelly. Also, not having enuff money or time is often a big issue.
 
 \vspace{1cm}
 
 \section*{Task 2}
 
 \subsubsection*{How can data help in UI/UX}
-Data provides valuable insights into how users interacts with a product, for example, what features they use most or where they encounter problems. [21, 25] This helps designers to understand user needs better, identify specific pain points, and make design decisions based on evidence rather than just assumptions, which ultimately lead to better products. [23, 24]
+Data, it gives you good cllues about how users use a product, like what things they use lots or where they get stuck. This helps the desingers to understand what users need much better, find the exact spots that cause trouble, and decide on designs using facts not just guessing, so the products end up being better for it.
 
 \subsubsection*{What is the difference between qualitative data and quantitative data}
-Qualitative data gives us insights into the 'why' behind user actions, like their feelings, opinions, or motivations, and it is usually in non-numerical form. [26, 29] Quantitative data, on other hand, is about numbers and statistics, such as how many users clicked a specific button or how long they might have stayed on a particular page; it tells you 'how much' or 'how often'. [27, 28]
+Qualitative data is the stuff that tells you the 'why' users do things, like how they're feelinngs, their ideas, or what makes them do stuff, and it's usually words not numbers. Quantitative data, though, that's all about the numbers and stats, like how many folks clicked some button or the time they spent on one page; it tells you 'how many' or 'how much time'.
 
 \subsubsection*{How does A/B testing improve a design}
-A/B testing help improve a design by allowing designers to compare two different versions of an interface element (like a button or a layout) to see which one performs better with users in terms of achieving a specific goal. [31, 33] This process takes out much of the guesswork and lets design decisions be made based on actual user behavior and preferences, ensuring changes are genuinely beneficial. [32, 34]
+A/B testing helps make a design better because it lets designers try out two versions of something on the interface (like a button, or how its laid out) to see wich one actualy works better for users to reach some goal. This way, theres less just guessing and design choices are from what users really do and like, which makes sure changes are actually good ones.
 
 \subsubsection*{List down a few common data collection methods and explain each in brief}
 \begin{itemize}
-    \item \textbf{Surveys:} These collect information from a large number of users through a set of structured questions. Surveys are good for gathering both quantitative data (e.g., ratings, frequencies) and some qualitative data (e.g., open-ended responses about experiences). [36, 37]
-    \item \textbf{User Interviews:} These are one-on-one discussions with users to obtain in-depth qualitative insights about their attitudes, beliefs, motivations, and experiences regarding a product. They allow for follow-up questions and a deeper understanding of user perspectives. [38, 39]
-    \item \textbf{Usability Testing:} This involves observing users as they try to complete predefined tasks with a product or prototype. Its primary goal is to identify usability problems, collect qualitative feedback, and measure task success rates. [37, 38]
+    \item \textbf{Surveys:} These get info from loads of users using questions that are all set up. Surveys are good for getting both number data (like ratings) and some wordy data (like what people write about their expereinces).
+    \item \textbf{User Interviews:} These are like chats, one-on-one with users, to get deep thoughts about what they think, beleive, and feel about a product. You can ask more questions and really understand them.
+    \item \textbf{Usability Testing:} This is where you watch users try to do specific jobs with a product or a test version. The main idea is to find problms with using it, get feedback, and see if they can do the tasks right.
 \end{itemize}
 
 \vspace{1cm}
 
-\section*{Task 3}
-\textit{This task is group work and has been omitted as per instructions.}
+\section*{Task 3: Revamp Movie Ticket Booking Website}
+\textit{This task involves a full website revamp for a movie ticket booking system. The detaled design process, including further persona development, sketches, wireframes (web and mobile), high-fidelity designs (web and mobile), and prototypes are available via the Figma link below. The following sections briefly outline initial user persona thougts and the intended UX improvements for key interfaces.}
+
+\subsection*{1. User Personas (Initial Thoughts)}
+To start this, I'd first create some user personas to undestand who we're designing for. For example:
+\begin{itemize}
+    \item \textbf{Persona 1: Sarah, the Frequent Moviegoer (28):} Tech-savvy, books tickets often via mobile, looks for new releases, reviews, and efficent booking. Values quick seat selection and digital tickets.
+    \item \textbf{Persona 2: David, the Casual Planner (45):} Books for family outings, less frequent user, might use desktop, needs clear navigation and simple steps. Values information about movie sutability for kids and easy to find showtimes.
+\end{itemize}
+These initial personas (and potentaly one or two more developed further in the Figma file) would guide all design decisions to make sure we meet real user needs.
+
+\subsection*{2. Intended UX Improvements for Key UIs}
+The goal of the revamp is to create a more intuitive, efficient, and enjoyble booking experience.
+
+\subsubsection*{Homepage}
+\begin{itemize}
+    \item \textbf{Intended UX Improvement:} Make it much easier for users to quickly find movies, wether they are searching for a specific title or just browsing new releases and upcoming films. The aim is to reduce clutter and provide clear pathways to content.
+\end{itemize}
+
+\subsubsection*{Movie Listing / Search Results Page}
+\begin{itemize}
+    \item \textbf{Intended UX Improvement:} Offer users clear and effecive filtering options to help them narrow down choices quickly and efficiently. This is about making the process of finding the right movie less overwhelming and more direct.
+\end{itemize}
+
+\subsubsection*{Movie Details Page}
+\begin{itemize}
+    \item \textbf{Intended UX Improvement:} Consolidate all essental movie information and the primary call-to-action (selecting showtime/booking) onto a single, easily scannable screen to minimize clicks and streamline the user journey to booking.
+\end{itemize}
+
+\subsubsection*{Seat Selection Page}
+\begin{itemize}
+    \item \textbf{Intended UX Improvement:} Provide a highly visual and interactive seat selection process. The focus is on making it easy to understand seat availibility, see selected seats clearly, and get real-time price updates to avoid any surprises.
+\end{itemize}
+
+\subsubsection*{Checkout/Summary Page}
+\begin{itemize}
+    \item \textbf{Intended UX Improvement:} Ensure a straitforward and secure final step. Users should be able to easily review their complete order details before payment and encounter minimal, essential form fields to make the process fast and reduce errors.
+\end{itemize}
+
+\subsection*{3. Supporting Figma Link}
+The complete design artefacts, including further user persona development, sketches, wireframes (for web and mobile), high-fidelity designs (for web and mobile), and interactive prototypes, can be viewed at the following Figma link:
+
+\url{https://www.figma.com/design/TBdhT4w4tnjyjmlv25haL9/CW?node-id=0-1&t=XDAXanGdrPGgA0Mj-1}
 
 \vspace{1cm}
 
 \section*{Task 4}
 
 \subsubsection*{How does accessibility impact in user experience}
-Accessibility makes sure that people with different abilities (including visual, auditory, motor, or cognitive impairments) can use a product effectively, and this usually improve the overall user experience for all users, not just those with disabilities. [41, 44] For instance, clear navigation and readable text that help users with disabilities also make the site easier for everyone else to use and understand. [42, 45]
+Accessibility, it makes really sure that people with all different kinds of abiliteis (like if they can't see well, or hear, or move easy, or think through things same as others) can use a product just fine, and this usually ends up making the whole experience better for everyone, not just for people with disablities. Like, clear menus and text you can read easy, that helps users with disabilities but it also makes the site easier for anyone.
 
 \subsubsection*{Impact of pervasive computing in UI/UX}
-Pervasive computing, where technology is embedded in many everyday objects and environments, mean that UI/UX design must create interfaces that are more adaptable, context-aware, and often less obtrusive. [46, 49] The interaction needs to be natural and often blend seamlessly into the user's environment, moving beyond traditional screen-based interfaces. [47, 50] This presents new challenges for designers to ensure usability across a multitude of interconnected devices.
+Pervasive computing, that's where tech is kind of everywere, in all sort of everyday things and places, it means that UI/UX design has got to make interfaces that can change more, know what's going on around them, and often not be so in your face. How you interact with it needs to feel natural and often just part of your surroundings, not just on screens all the time. This is a new type of problem for designers, to make sure it all works nice on so many conected gadgets.
 
 \subsubsection*{What is UCD in UI/UX}
-UCD, or User-Centered Design, is a design approach where the needs, wants, and limitations of the end user are the central focus at every stage of the design and development process. [51, 53] It involves users actively throughout development, through research and testing, to ensure the final product is highly usable, accessible, and meets their actual requirements. [52, 56]
+UCD means User-Centered Design, and it's a way to design things where what the user needs, wants, and can't do is the main thing you think about all the way throug making it. It means getting users involved lots when you're building it, by doing research and tests, so the thing you make at the end is super easy to use, everyone can use it, and it does what they realy need.
 
 \subsubsection*{How does UI/UX improve a business}
-Good UI/UX can significantly improve a business by increase customer satisfaction and fostering loyalty. [57, 60] When users have a positive and effortless experience with a website or app, they are more likely to continue using that product or service, recommend it to others, and convert into paying customers, which can lead to higher sales and a stronger, more reputable brand image. [58, 59] It can also reduce development costs by identifying issues early.
+Good UI/UX can help a busness a whole lot, by making customers more happy and keep coming back. When users have a good time and things are easy to use on a website or app, they're much more likly to keep using that thing, or tell their friends, and become customers that pay, which then means more sales and the business looks better. It can even save money on making it by finding issues early on.
 
 \end{document}
