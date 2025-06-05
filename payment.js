@@ -85,16 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             payNowBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing Payment...';
             payNowBtn.disabled = true;
 
-            // Add shake animation if validation fails
-            const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
-            if (!selectedPaymentMethod) {
-                showNotification('Please select a payment method', 'error');
-                shakeElement(payNowBtn);
-                payNowBtn.innerHTML = originalText;
-                payNowBtn.disabled = false;
-                return;
-            }
-
+            // Skip validation for design purposes - directly process payment
+            
             // Simulate payment processing
             setTimeout(() => {
                 // Add success animation

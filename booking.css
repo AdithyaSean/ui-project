@@ -1,0 +1,370 @@
+/* Booking Page Specific Styles */
+
+/* Movie Title */
+.movie-title {
+    color: var(--gray-900);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Date Selection Cards */
+.date-card {
+    background-color: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 110px;
+}
+
+.date-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15);
+}
+
+.date-card.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
+}
+
+.date-card.active .date-header, 
+.date-card.active .date-day {
+    color: var(--white);
+}
+
+.date-header {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--gray-900);
+}
+
+.date-header strong {
+    font-weight: 700;
+}
+
+.date-day {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    text-transform: capitalize;
+}
+
+/* Time Selection Buttons */
+.time-btn {
+    background-color: var(--white);
+    border: 2px solid var(--gray-200);
+    color: var(--gray-900);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.time-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15);
+}
+
+.time-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Screen Design */
+.screen-modern {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    height: 10px;
+    width: 320px;
+    border-radius: 0 0 24px 24px;
+    margin: 0 auto 2rem auto;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
+}
+
+.screen-label {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Seating Chart */
+.seating-chart-modern {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.row-label {
+    width: 35px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--gray-600);
+    font-size: 1rem;
+}
+
+.seat {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    position: relative;
+}
+
+.seat.available {
+    background-color: var(--white);
+    border: 2px solid var(--gray-200);
+    color: var(--gray-900);
+}
+
+.seat.available:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    color: var(--white);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+.seat.selected {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--white);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4);
+}
+
+.seat.unavailable {
+    background-color: var(--gray-300);
+    border: 2px solid var(--gray-300);
+    color: var(--gray-600);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.seat-gap {
+    width: 24px;
+}
+
+/* Seat Legend */
+.seat-legend-container {
+    margin-top: 1.5rem;
+}
+
+.seat-legend {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.seat.small {
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
+}
+
+/* Movie Poster Container */
+.movie-poster-container {
+    text-align: center;
+}
+
+.movie-poster-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.movie-poster-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Booking Summary Card */
+.booking-summary-card {
+    position: sticky;
+    top: 20px;
+}
+
+.movie-info-summary h5 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.selected-seats h6 {
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+
+.seat-pills .badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+}
+
+/* Price Breakdown */
+.price-breakdown-modern h6 {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--seat-available-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.price-item {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-total {
+    border-top: 2px solid var(--seat-available-border);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+/* Payment Button */
+#continue-payment-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#continue-payment-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(106, 17, 203, 0.3);
+}
+
+#continue-payment-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive Design for Date and Time Selection */
+.date-selection-row,
+.time-selection-row {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+    .date-selection-row,
+    .time-selection-row {
+        justify-content: flex-start !important;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+    }
+    
+    .date-selection-row .col-auto,
+    .time-selection-row .col-auto {
+        flex-shrink: 0;
+    }
+    
+    .seating-chart-modern {
+        padding: 0.5rem;
+    }
+    
+    .seat {
+        width: 28px;
+        height: 28px;
+        font-size: 0.6rem;
+    }
+    
+    .screen-modern {
+        width: 250px;
+    }
+}
+
+@media (min-width: 768px) {
+    .date-selection-row,
+    .time-selection-row {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .date-selection-row .col-auto,
+    .time-selection-row .col-auto {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Enhanced animations for selections */
+.date-selection-row .col-auto,
+.time-selection-row .col-auto {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.date-selection-row .col-auto:nth-child(1) { animation-delay: 0.1s; }
+.date-selection-row .col-auto:nth-child(2) { animation-delay: 0.2s; }
+.date-selection-row .col-auto:nth-child(3) { animation-delay: 0.3s; }
+
+.time-selection-row .col-auto:nth-child(1) { animation-delay: 0.4s; }
+.time-selection-row .col-auto:nth-child(2) { animation-delay: 0.5s; }
+.time-selection-row .col-auto:nth-child(3) { animation-delay: 0.6s; }
+.time-selection-row .col-auto:nth-child(4) { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover effects for selection areas */
+.date-selection-row:hover .date-card:not(:hover):not(.active),
+.time-selection-row:hover .time-btn:not(:hover):not(.active) {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+/* Section title animations */
+.section-title.text-center {
+    animation: fadeInScale 0.8s ease-out forwards;
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
