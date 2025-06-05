@@ -1,0 +1,151 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathptmx} % Better Times New Roman implementation
+\usepackage[T1]{fontenc} % Better font encoding
+
+% Customizing section titles to match the document's style (simple and bold)
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Remove page number on the first page (cover page)
+\pagenumbering{gobble}
+
+\begin{document}
+
+% --- Cover Page ---
+\begin{titlepage}
+    \centering
+    \vspace*{0.3cm}
+    
+    \includegraphics[width=5.5cm]{coventry-logo.png} % Coventry University Logo
+    
+    \vspace{1cm}
+    
+    {\Huge\bfseries COVENTRY UNIVERSITY}
+    
+    {\Large UNITED KINGDOM}
+    
+    \vspace{1cm}
+    
+    {\Large School of Computing}
+    
+    \vspace{1.2cm}
+    
+    {\huge\bfseries Project Report on}
+    
+    \vspace{0.3cm}
+    
+    {\Huge\bfseries ``User Experience Designing Coursework''}
+    
+    \vspace{1.2cm}
+    
+    {\Large done by}
+    
+    \vspace{0.3cm}
+    
+    {\Large E M A S B EKANAYAKA – COBSCCOMP242-065}
+    
+    {\Large COVID – 16110762}
+    
+    \vspace{0.8cm}
+    
+    {\Large Under Supervision of}
+    
+    \vspace{0.3cm}
+    
+    {\Large\bfseries Mr. Hazeer (Lecturer)}
+    
+    \vfill % Pushes NIBM logo and text to the bottom
+    
+    \includegraphics[width=3.5cm]{nibm-logo.png} % NIBM Logo
+    
+    \vspace{0.3cm}
+    
+    {\Large School of Computing and Engineering}
+    
+    {\Large\bfseries NATIONAL INSTITUTE OF BUSINESS MANAGEMENT}
+    
+    {\Large SRI LANKA}
+    
+\end{titlepage}
+
+\newpage
+\pagenumbering{arabic} % Start page numbering from here
+
+% --- Coursework Content ---
+
+\section*{Coursework Assessment}
+\renewcommand{\labelitemi}{--} % Change bullet point style for Task 1, 2, 4
+
+\subsection*{Module Name: User Experience Designing}
+
+\vspace{1cm}
+
+\section*{Task 1}
+
+\subsubsection*{What is the primary goal of usability in UI/UX}
+The main aim of usability in UI/UX is to ensuring users can achieve their objectives easily and effectively. [1, 2] This involve identifying any problems in the design that might stop users from having a good experience. [3, 5] Ultimately, it’s about creating products that are not just functional but also pleasant for people to use.
+
+\subsubsection*{Name two key factors in building a user-friendly interface}
+Two important factors for a user-friendly interface is clarity and consistency. [6, 10] A clear layout helps users understand the interface quickly, and consistency in design elements makes the system predictable and easier to learn, which reduce confusion. [6, 7]
+
+\subsubsection*{How does performing a usability study contribute in a design revamp}
+A usability study is very helpful for a design revamp because it show what parts of the current design is not working well for users. [14, 15] This informations help designers make changes that are based on actual user needs and behaviors, leading to a more effective and satisfying new design. [11, 12] It ensures resources are invested into changes that truly matter.
+
+\subsubsection*{Challenges in conducting a usability study}
+One big challenge is finding the right participants who truly represent the target users for the product; if the sample is not right, the findings may be skewed. [16, 20] Another difficulty can be to ensure the test environment reflect how people will actually use the product in their daily lives, as artificial settings may not capture true behavior. [16, 17] Budget and time constraints also often pose significant hurdles.
+
+\vspace{1cm}
+
+\section*{Task 2}
+
+\subsubsection*{How can data help in UI/UX}
+Data provides valuable insights into how users interacts with a product, for example, what features they use most or where they encounter problems. [21, 25] This helps designers to understand user needs better, identify specific pain points, and make design decisions based on evidence rather than just assumptions, which ultimately lead to better products. [23, 24]
+
+\subsubsection*{What is the difference between qualitative data and quantitative data}
+Qualitative data gives us insights into the 'why' behind user actions, like their feelings, opinions, or motivations, and it is usually in non-numerical form. [26, 29] Quantitative data, on other hand, is about numbers and statistics, such as how many users clicked a specific button or how long they might have stayed on a particular page; it tells you 'how much' or 'how often'. [27, 28]
+
+\subsubsection*{How does A/B testing improve a design}
+A/B testing help improve a design by allowing designers to compare two different versions of an interface element (like a button or a layout) to see which one performs better with users in terms of achieving a specific goal. [31, 33] This process takes out much of the guesswork and lets design decisions be made based on actual user behavior and preferences, ensuring changes are genuinely beneficial. [32, 34]
+
+\subsubsection*{List down a few common data collection methods and explain each in brief}
+\begin{itemize}
+    \item \textbf{Surveys:} These collect information from a large number of users through a set of structured questions. Surveys are good for gathering both quantitative data (e.g., ratings, frequencies) and some qualitative data (e.g., open-ended responses about experiences). [36, 37]
+    \item \textbf{User Interviews:} These are one-on-one discussions with users to obtain in-depth qualitative insights about their attitudes, beliefs, motivations, and experiences regarding a product. They allow for follow-up questions and a deeper understanding of user perspectives. [38, 39]
+    \item \textbf{Usability Testing:} This involves observing users as they try to complete predefined tasks with a product or prototype. Its primary goal is to identify usability problems, collect qualitative feedback, and measure task success rates. [37, 38]
+\end{itemize}
+
+\vspace{1cm}
+
+\section*{Task 3}
+\textit{This task is group work and has been omitted as per instructions.}
+
+\vspace{1cm}
+
+\section*{Task 4}
+
+\subsubsection*{How does accessibility impact in user experience}
+Accessibility makes sure that people with different abilities (including visual, auditory, motor, or cognitive impairments) can use a product effectively, and this usually improve the overall user experience for all users, not just those with disabilities. [41, 44] For instance, clear navigation and readable text that help users with disabilities also make the site easier for everyone else to use and understand. [42, 45]
+
+\subsubsection*{Impact of pervasive computing in UI/UX}
+Pervasive computing, where technology is embedded in many everyday objects and environments, mean that UI/UX design must create interfaces that are more adaptable, context-aware, and often less obtrusive. [46, 49] The interaction needs to be natural and often blend seamlessly into the user's environment, moving beyond traditional screen-based interfaces. [47, 50] This presents new challenges for designers to ensure usability across a multitude of interconnected devices.
+
+\subsubsection*{What is UCD in UI/UX}
+UCD, or User-Centered Design, is a design approach where the needs, wants, and limitations of the end user are the central focus at every stage of the design and development process. [51, 53] It involves users actively throughout development, through research and testing, to ensure the final product is highly usable, accessible, and meets their actual requirements. [52, 56]
+
+\subsubsection*{How does UI/UX improve a business}
+Good UI/UX can significantly improve a business by increase customer satisfaction and fostering loyalty. [57, 60] When users have a positive and effortless experience with a website or app, they are more likely to continue using that product or service, recommend it to others, and convert into paying customers, which can lead to higher sales and a stronger, more reputable brand image. [58, 59] It can also reduce development costs by identifying issues early.
+
+\end{document}
